@@ -3,6 +3,7 @@ from django.db import models
 from django.utils.text import slugify
 from slugify import slugify as persian_slugify
 from datetime import datetime
+from django.db.models import JSONField
 from shop import settings
 # Create your models here.
 
@@ -10,12 +11,8 @@ from shop import settings
 class Info(models.Model):
     site_name = models.CharField(max_length=100)
     support_number = models.CharField(max_length=100)
-
-
-
     def __str__(self):
         return self.site_name
-
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
 
