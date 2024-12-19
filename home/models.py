@@ -19,6 +19,24 @@ class Info(models.Model):
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
 
+class Users(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField(unique=True, blank=True, null=True)
+    password = models.CharField(max_length=100)
+    phone = models.CharField(max_length=100, unique=True)
+    def __str__(self):
+        return self.name
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+
+class UserInfo(models.Model):
+    phone = Users.phone
+    address = models.CharField(max_length=100)
+    postal_code = models.CharField(max_length=100)
+    home_phone = models.CharField(max_length=100)
+    payment_info = JSONField( blank=True, default=list, help_text="Store detailed payment information as JSON", editable=False)
+    def __str__(self):
+        return self.phone
 
 class Products(models.Model):
     title = models.CharField(max_length=100)
