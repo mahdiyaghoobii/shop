@@ -8,7 +8,6 @@ from shop import settings
 
 
 class Info(models.Model):
-
     site_name = models.CharField(max_length=100)
     support_number = models.CharField(max_length=100)
 
