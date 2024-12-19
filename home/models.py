@@ -19,21 +19,27 @@ class Info(models.Model):
 class Users(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField(unique=True, blank=True, null=True)
-    password = models.CharField(max_length=100)
+    password = models.CharField(max_length=100)  # Note: Store hashed passwords for security
     phone = models.CharField(max_length=100, unique=True)
+
     def __str__(self):
         return self.name
-    def save(self, *args, **kwargs):
-        super().save(*args, **kwargs)
 
 class UserInfo(models.Model):
-    phone = Users.phone
+    user = models.OneToOneField(Users, on_delete=models.CASCADE, related_name='info', default=None)
     address = models.CharField(max_length=100)
     postal_code = models.CharField(max_length=100)
     home_phone = models.CharField(max_length=100)
-    payment_info = JSONField( blank=True, default=list, help_text="Store detailed payment information as JSON", editable=False)
+    payment_info = JSONField(blank=True, default=list, help_text="Store detailed payment information as JSON", editable=False)
+
     def __str__(self):
-        return self.phone
+        return self.user.phone  # Use the related user's phone number
+
+    def save(self, *args, **kwargs):
+        # Ensure the payment_info is a list if it's empty
+        if not self.payment_info:
+            self.payment_info = []
+        super().save(*args, **kwargs)
 
 class Products(models.Model):
     title = models.CharField(max_length=100)

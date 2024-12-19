@@ -4,36 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d346ba8d-3471-4fb1-81d1-362c192cc44f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/625050a9-8b91-4921-8001-d407ea8d54bd.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/625050a9-8b91-4921-8001-d407ea8d54bd/storage_v2/_src_/database/shop.9to1AA.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/625050a9-8b91-4921-8001-d407ea8d54bd/storage_v2/_src_/database/shop.9to1AA/schema/information_schema.FNRwLQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/625050a9-8b91-4921-8001-d407ea8d54bd/storage_v2/_src_/database/shop.9to1AA/schema/pg_catalog.0S1ZNQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/625050a9-8b91-4921-8001-d407ea8d54bd/storage_v2/_src_/database/shop.9to1AA/schema/public.abK9xQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shop.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/migrations/0005_info_products_delete_blog.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/migrations/0006_products_pages_products_price_after_discount_and_more.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/migrations/0007_products_language_alter_products_price.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/serializer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop/asgi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop/settings.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop/wsgi.py" afterDir="false" />
+    <list default="true" id="d346ba8d-3471-4fb1-81d1-362c192cc44f" name="Changes" comment="1">
+      <change afterPath="$PROJECT_DIR$/home/migrations/0008_userinfo_users_alter_products_rate.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/625050a9-8b91-4921-8001-d407ea8d54bd.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/625050a9-8b91-4921-8001-d407ea8d54bd.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/625050a9-8b91-4921-8001-d407ea8d54bd/storage_v2/_src_/database/shop.9to1AA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/625050a9-8b91-4921-8001-d407ea8d54bd/storage_v2/_src_/database/shop.9to1AA/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/models.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +29,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "boogey7"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/boogey7/shop.git",
+    "accountId": "b89fa2d7-b7f9-4e76-98e2-12a168079e12"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -129,8 +117,33 @@
       <option name="presentableId" value="Default" />
       <updated>1734445363340</updated>
       <workItem from="1734445364407" duration="17691000" />
-      <workItem from="1734605424231" duration="4862000" />
+      <workItem from="1734605424231" duration="7139000" />
     </task>
+    <task id="LOCAL-00001" summary="1">
+      <option name="closed" value="true" />
+      <created>1734618444881</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1734618444881</updated>
+    </task>
+    <task id="LOCAL-00002" summary="add website-info table">
+      <option name="closed" value="true" />
+      <created>1734620959140</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1734620959140</updated>
+    </task>
+    <task id="LOCAL-00003" summary="add user-table">
+      <option name="closed" value="true" />
+      <created>1734620986909</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1734620986909</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -141,10 +154,22 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="1" />
+    <MESSAGE value="add website-info table" />
+    <MESSAGE value="add user-table" />
+    <option name="LAST_COMMIT_MESSAGE" value="add user-table" />
   </component>
 </project>
