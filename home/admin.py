@@ -22,9 +22,17 @@ class ProductAdmin(admin.ModelAdmin):
 
         # Set a user-friendly column name in the admin panel
 
+@admin.register(models.ProductPublisher)
+class ProductPublisherAdmin(admin.ModelAdmin):
+    list_display = ('title', )
+    search_fields = ('title',)
+    # list_filter = ('is_active',)
+    ordering = ('title',)
+
+
 @admin.register(models.ProductTag)
 class ProductTagAdmin(admin.ModelAdmin):
-    list_display = ('title',)
+    list_display = ('title', 'description')
     search_fields = ('title',)
     ordering = ('title',)
 

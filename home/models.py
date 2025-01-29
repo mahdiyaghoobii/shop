@@ -67,8 +67,12 @@ class ProductTag(models.Model):
         return self.title
 
 class ProductPublisher(models.Model):
-    title = models.CharField(max_length=100, verbose_name='')
-    ia_active = models.BooleanField(default=False, verbose_name='')
+    title = models.CharField(max_length=100, verbose_name='نام انتشارات', db_index=True)
+    ia_active = models.BooleanField(default=False, verbose_name='فعال / غیر فعال')
+
+    class Meta:
+        verbose_name = 'انتشارات'
+        verbose_name_plural = 'انتشارات'
 
     def __str__(self):
         return self.title
