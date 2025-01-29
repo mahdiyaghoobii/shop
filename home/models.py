@@ -1,5 +1,7 @@
 import django.utils.text
 from django.db import models
+from django.db.models.fields import CharField
+from django.template.defaultfilters import title
 from django.utils.text import slugify
 from slugify import slugify as persian_slugify
 from datetime import datetime
@@ -41,47 +43,90 @@ class UserInfo(models.Model):
             self.payment_info = []
         super().save(*args, **kwargs)
 
-class Products(models.Model):
-    title = models.CharField(max_length=100)
-    price = models.DecimalField(max_digits=15, default=0, decimal_places=3, help_text='ریال', )
-    price_after_discount = models.DecimalField(max_digits=15, default=None, decimal_places=3, blank=True, null=True)
-    content = models.TextField()
-    writer = models.CharField(max_length=100, default=None)
-    publisher = models.CharField(max_length=100, default=None)
-    print = models.CharField(max_length=100, default=None)
-    translator = models.CharField(max_length=100, blank=True, null=True)
-    pages = models.IntegerField(default=0)
-    language = models.CharField(max_length=100, choices={"en" : "English", "fa" : "Farsi", "ar" : "Arabic"}, default='fa')
-    quantity = models.PositiveIntegerField(default=0)
-    # slug = models.SlugField(max_length=100, unique=True, blank=True, null=True)
-    rate = models.IntegerField(default=0, editable=False)
-    seller_name = models.CharField(max_length=100, default="کتابخانه", blank=True, null=True)
-    sell_count = models.IntegerField(default=0)
-    is_done = models.BooleanField(default=False)
-    last_update = models.DateTimeField(auto_now=True, blank=True, null=True, ) # problem:
-    image = models.ImageField(upload_to='images/', blank=True, null=True)
-    image_path = models.CharField(max_length=200, blank=True)
+class Categories(models.Model):
+    name = models.CharField(max_length=100, verbose_name='عنوان', db_index=True)
+    url_title = models.CharField(max_length=100, null=True, verbose_name='عنوان در url', db_index=True)
+    content = models.TextField(null=True, blank=True)
+    is_active = models.BooleanField(default=False, verbose_name='فعال / غیر فعال')
+
+    class Meta:
+        verbose_name = 'سته بندی'
+        verbose_name_plural = 'دسته بندی ها'
+    def __str__(self):
+        return self.name
+
+class ProductTag(models.Model):
+    title = models.CharField(max_length=100, verbose_name='عنوان تگ', db_index=True)
+    description = models.CharField(null=True, blank= True)
+
+    class Meta:
+        verbose_name = 'تگ محصول'
+        verbose_name_plural = 'تگ ها' #tag ----> "tags"
 
     def __str__(self):
         return self.title
 
-    # def save(self, *args, **kwargs):
-    #     if self.image:
-    #
-    #
-    #         self.image_path = 'images/' + self.image.name
-    #     self.slug = slugify(self.title)
-    #     super(blog, self).save(*args, **kwargs)
+class ProductPublisher(models.Model):
+    title = models.CharField(max_length=100, verbose_name='')
+    ia_active = models.BooleanField(default=False, verbose_name='')
 
+    def __str__(self):
+        return self.title
+
+class ProductsInfo(models.Model):
+    seller_name = models.CharField(max_length=100, default="کتابخانه", blank=True, null=True, verbose_name='فروشنده')
+    writer = models.CharField(max_length=100, default=None, verbose_name='نویسنده')
+    publisher = models.ForeignKey(ProductPublisher, on_delete=models.CASCADE, default=None, verbose_name='انتشارات')
+    print = models.CharField(max_length=100, default=None, verbose_name='نوبت چاپ')
+    translator = models.CharField(max_length=100, blank=True, null=True, verbose_name='مترجم')
+    pages = models.IntegerField(default=0, verbose_name='تعداد صفحات')
+    language = models.CharField(max_length=100, choices=[("en", "English"), ("fa", "Farsi"), ("ar", "Arabic")], default='fa', verbose_name='زبان')
+
+    def __str__(self):
+        return f'{self.seller_name} - {self.writer}'
+
+    class Meta:
+        verbose_name = 'اطلاعات محصول'
+        verbose_name_plural = 'اطلاعات محصولات'
+
+
+class Products(models.Model):
+    title = models.CharField(max_length=100, verbose_name='عنوان', db_index=True)
+    price = models.IntegerField(default=0, help_text='تومان', verbose_name='قیمت', db_index=True)
+    price_after_discount = models.IntegerField(default=None, blank=True, null=True, verbose_name='قیمت بعد از تخفیف')
+    content = models.TextField(null=True, verbose_name='توضیحات')
+    Info = models.OneToOneField(ProductsInfo, on_delete=models.CASCADE, blank=True, null=True, related_name='Product_Information', verbose_name='اطلاعات تکمیلی')
+    category = models.ManyToManyField(Categories, blank=True,verbose_name='دسته بندی')
+    quantity = models.PositiveIntegerField(default=0, verbose_name='تعداد')
+    slug = models.SlugField(max_length=100, unique=True, db_index=True, blank=True, null=True, verbose_name='عنوان در url')
+    # rate = models.IntegerField(default=0, editable=False, verbose_name='امتیاز')
+    sell_count = models.IntegerField(default=0, verbose_name='تعداد فروش')
+    # test = models.CharField(null=True, blank=True)
+    is_active = models.BooleanField(default=False, verbose_name='فعال / غیر فعال')
+    last_update = models.DateTimeField(auto_now=True, verbose_name='آخرین تغییرات', null=True) # problem:
+    image = models.ImageField(upload_to='images/', blank=True, null=True, verbose_name='تصویر')
+    # image_path = models.CharField(max_length=200, blank=True, verbose_name='آدرس تصویر')
+    is_deleted = models.BooleanField(default=False, verbose_name='حذف شده / نشده')
+    tags = models.ManyToManyField(ProductTag, blank=True, verbose_name='تگ', default=None)
+
+    class Meta:
+        verbose_name = 'محصول'
+        verbose_name_plural = 'محصولات'
+    def __str__(self):
+        return self.title
     def save(self, *args, **kwargs):
-        if self.image:
-            if self.title:
-                if self.title.isascii():  # Check if title is in English
-                    slugified_title = slugify(self.title)
-                else:
-                    slugified_title = persian_slugify(self.title)
-                self.image_path = f'images/{slugified_title}/{self.image.name}'
-            else:
-                self.image_path = f'images/{self.image.name}'
-        self.slug = slugify(self.title)
+
+        # if self.image:
+        #     if self.title:
+        #         if self.title.isascii():  # Check if title is in English
+        #             slugified_title = slugify(self.title)
+        #         else:
+        #             slugified_title = persian_slugify(self.title)
+        #         self.image_path = f'images/{slugified_title}/{self.image.name}'
+        #     else:
+        #         self.image_path = f'images/{self.image.name}'
+        # self.slug = slugify(self.title)
         super().save(*args, **kwargs)
+
+
+

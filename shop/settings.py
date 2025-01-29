@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home.apps.HomeConfig',
     'rest_framework',
-    'rest_framework_simplejwt'
+    'rest_framework_simplejwt',
+    'main.apps.MainConfig',
+    'django_render_partial'
 ]
 
 MIDDLEWARE = [
@@ -80,13 +82,12 @@ WSGI_APPLICATION = 'shop.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'shop',         # Your actual database name
-        'USER': 'shop',          # Your actual PostgreSQL username
-        'PASSWORD': 'mahdi',  # Your PostgreSQL password
-        'HOST': 'localhost',             # Keep as 'localhost' if local
-        'PORT': '5432',                  # Default PostgreSQL port
-    }
-}
+        'NAME': 'eshopp',
+        'USER': 'eshop',
+        'PASSWORD': 'mahdi',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -124,7 +125,7 @@ TIME_FORMAT = 'H:i'
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
-
+STATICFILES_DIRS = [BASE_DIR / 'static']
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
@@ -132,11 +133,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 REST_FRAMEWORK = {
-    # 'DEFAULT_AUTHENTICATION_CLASSES' : 'rest_framework_simplejwt.authentication.JWTAuthentication',
+    'DEFAULT_AUTHENTICATION_CLASSES' : 'rest_framework_simplejwt.authentication.JWTAuthentication',
     # 'DEFAULT_PERMISSION_CLASSES' : 'rest_framework.permissions.IsAuthenticated',
 }
 
 SIMPLE_JWT = {
-    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=5),
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=60),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
 }
+
+AUTH_USER_MODEL = 'main.Customers'

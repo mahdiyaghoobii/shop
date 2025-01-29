@@ -9,7 +9,12 @@ from .models import Products
 from .serializer import products_serializer
 
 
-# region cbv product
+
+# def signin(request):
+#     return render(request, 'home/signin.html')
+# def signup(request):
+#     return render(request, 'home/signup.html')
+
 
 class BestProductSlider(APIView):
 
@@ -17,16 +22,10 @@ class BestProductSlider(APIView):
         best_product_slider = Products.objects.filter(is_done=True).order_by('sell_count').all()
         todo_serializer = products_serializer(best_product_slider, many= True)
         return Response(todo_serializer.data, status.HTTP_200_OK)
-#endregion
-
-# region viewset
 
 class DetailProductView(APIView):
     def get(self,request: Request,pk):
         pass
-#endregion
-
-
 
 class HomePageView(viewsets.ModelViewSet):
     queryset =  Products.objects.order_by('pk').all()
