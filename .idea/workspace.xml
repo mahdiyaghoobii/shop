@@ -5,29 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d346ba8d-3471-4fb1-81d1-362c192cc44f" name="Changes" comment="models.py optimized&#10;admin.py completed&#10;publisher set as a foreignkey model of Product Info in models.py">
-      <change afterPath="$PROJECT_DIR$/contact_module/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/contact_module/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/contact_module/templates/contact_module/contact-us.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/contact_module/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/migrations/0002_rename_name_users_username_users_groups_and_more.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/migrations/0003_alter_products_image.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/migrations/0002_products_test.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/migrations/0003_productpublisher_remove_products_test_and_more.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/serializer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/home/signin.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/home/signin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/Serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/Serializer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/templates/main/product-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/main/product-details.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/shop/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/shop/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/shared/site_header_partial.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/shared/site_header_partial.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +71,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "Errors",
+    "settings.editor.selected.configurable": "com.github.copilot.settings.ApplicationConfigurable",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -174,6 +152,7 @@
       <workItem from="1739100954861" duration="8656000" />
       <workItem from="1739189257496" duration="13540000" />
       <workItem from="1739313319884" duration="295000" />
+      <workItem from="1739313655093" duration="501000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <option name="closed" value="true" />
@@ -239,7 +218,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738164742946</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="models.py optimized&#10;admin.py completed&#10;publisher set as a foreignkey model of Product Info in models.py">
+      <option name="closed" value="true" />
+      <created>1739313714751</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1739313714752</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

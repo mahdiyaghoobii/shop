@@ -14,6 +14,10 @@ from rest_framework.authtoken.models import Token
 from .serializer import RegisterSerializer, ProductSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
 
+# class CustomPagination(pagination.PageNumberPagination):
+#     page_size = 1  # Number of items per page
+#     page_size_query_param = 'page_size'
+#     max_page_size = 100
 
 def signin_user(request):
     return render(request, 'home/signin.html')
@@ -38,7 +42,10 @@ class CustomTokenObtainPairView(TokenObtainPairView):
 class productlist(APIView):
     def get(self, request: Request):
         prlist = Products.objects.all()
+        # paginator = CustomPagination()
+        # paginated_prlist = paginator.paginate_queryset(prlist, request)
         product_serializer = ProductSerializer(prlist, many=True)
+        # return paginator.get_paginated_response(product_serializer.data)
         return Response(product_serializer.data, status=status.HTTP_200_OK)
 
 class ProductFilter(APIView):
