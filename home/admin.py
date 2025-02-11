@@ -1,11 +1,14 @@
 from django.contrib import admin
+from django.utils.html import format_html
+from django.utils.safestring import mark_safe
+
 from home import models
 # Register your models here.
 
 @admin.register(models.Products)
 class ProductAdmin(admin.ModelAdmin):
     filter_horizontal = ('tags',)
-    list_display = ('title', 'price', 'quantity', 'get_categories', 'last_update', 'is_active')
+    list_display = ('title', 'price', 'quantity', 'get_categories', 'last_update', 'is_active', 'image_preview')
     list_filter = ('title', 'category', 'is_active')
     list_editable = ('price', 'quantity', 'is_active')
     search_fields = ('title', 'price', 'quantity', 'category__name')
@@ -20,6 +23,12 @@ class ProductAdmin(admin.ModelAdmin):
         return ", ".join([tag.title for tag in obj.tags.all()])
     get_product_tag.short_description = 'Tags'
 
+    def image_preview(self, obj):
+        if obj.image:
+            return mark_safe(f'<img src="{obj.image.url}" width="50" height="50" />')
+        return "No Image"
+
+    image_preview.short_description = 'تصویر'
         # Set a user-friendly column name in the admin panel
 
 @admin.register(models.ProductPublisher)
@@ -39,7 +48,7 @@ class ProductTagAdmin(admin.ModelAdmin):
 @admin.register(models.ProductsInfo)
 class ProductsInfoAdmin(admin.ModelAdmin):
     list_display = (f'get_product_title', 'seller_name', 'writer', 'publisher', 'print', 'translator', 'pages', 'language')
-    search_fields = ('seller_name', 'writer', 'publisher', 'print', 'translator', 'pages', 'language')
+    search_fields = ('seller_name', 'writer', 'print', 'translator', 'pages', 'language')
     list_filter = ('seller_name', 'writer', 'publisher', 'print', 'translator', 'pages', 'language')
     ordering = ('seller_name',)
 
@@ -61,14 +70,14 @@ class CategoriesAdmin(admin.ModelAdmin):
 
 @admin.register(models.Users)
 class UsersAdmin(admin.ModelAdmin):
-    list_display = ('name', 'email', 'phone')
-    search_fields = ('name', 'email', 'phone')
+    list_display = ('username', 'email', 'phone')
+    search_fields = ('username', 'email', 'phone')
     list_filter = ('email', 'phone')
-    ordering = ('name',)
+    ordering = ('username',)
 
 @admin.register(models.UserInfo)
 class UserInfoAdmin(admin.ModelAdmin):
     list_display = ('user', 'address', 'postal_code', 'home_phone')
-    search_fields = ('user__name', 'address', 'postal_code')
+    search_fields = ('user__username', 'address', 'postal_code')
     list_filter = ('postal_code', 'home_phone')
-    ordering = ('user__name',)
+    ordering = ('user__username',)

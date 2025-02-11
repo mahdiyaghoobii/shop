@@ -1,4 +1,6 @@
 import django.utils.text
+from django.contrib.auth.base_user import AbstractBaseUser
+from django.contrib.auth.models import PermissionsMixin
 from django.db import models
 from django.db.models.fields import CharField
 from django.template.defaultfilters import title
@@ -18,14 +20,29 @@ class Info(models.Model):
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
 
-class Users(models.Model):
-    name = models.CharField(max_length=100)
+class Users(AbstractBaseUser, PermissionsMixin):
+    username = models.CharField(max_length=100)
     email = models.EmailField(unique=True, blank=True, null=True)
     password = models.CharField(max_length=100)  # Note: Store hashed passwords for security
     phone = models.CharField(max_length=100, unique=True)
 
+    groups = models.ManyToManyField(
+        'auth.Group',
+        related_name='custom_user_set',  # Unique related_name
+        blank=True,
+        verbose_name='groups',
+        help_text='The groups this user belongs to. A user will get all permissions granted to each of their groups.',
+    )
+    user_permissions = models.ManyToManyField(
+        'auth.Permission',
+        related_name='custom_user_set',  # Unique related_name
+        blank=True,
+        verbose_name='user permissions',
+        help_text='Specific permissions for this user.',
+    )
+
     def __str__(self):
-        return self.name
+        return self.username
 
 class UserInfo(models.Model):
     user = models.OneToOneField(Users, on_delete=models.CASCADE, related_name='info', default=None)
@@ -46,7 +63,7 @@ class UserInfo(models.Model):
 class Categories(models.Model):
     name = models.CharField(max_length=100, verbose_name='عنوان', db_index=True)
     url_title = models.CharField(max_length=100, null=True, verbose_name='عنوان در url', db_index=True)
-    content = models.TextField(null=True, blank=True)
+    content = models.TextField(null=True, blank=True, verbose_name='توضیحات')
     is_active = models.BooleanField(default=False, verbose_name='فعال / غیر فعال')
 
     class Meta:
@@ -57,7 +74,7 @@ class Categories(models.Model):
 
 class ProductTag(models.Model):
     title = models.CharField(max_length=100, verbose_name='عنوان تگ', db_index=True)
-    description = models.CharField(null=True, blank= True)
+    description = models.CharField(null=True, blank= True, verbose_name='توضیحات')
 
     class Meta:
         verbose_name = 'تگ محصول'
@@ -93,7 +110,6 @@ class ProductsInfo(models.Model):
         verbose_name = 'اطلاعات محصول'
         verbose_name_plural = 'اطلاعات محصولات'
 
-
 class Products(models.Model):
     title = models.CharField(max_length=100, verbose_name='عنوان', db_index=True)
     price = models.IntegerField(default=0, help_text='تومان', verbose_name='قیمت', db_index=True)
@@ -108,8 +124,8 @@ class Products(models.Model):
     # test = models.CharField(null=True, blank=True)
     is_active = models.BooleanField(default=False, verbose_name='فعال / غیر فعال')
     last_update = models.DateTimeField(auto_now=True, verbose_name='آخرین تغییرات', null=True) # problem:
-    image = models.ImageField(upload_to='images/', blank=True, null=True, verbose_name='تصویر')
-    # image_path = models.CharField(max_length=200, blank=True, verbose_name='آدرس تصویر')
+    image = models.ImageField(upload_to='images/' ,blank=True, null=True, verbose_name='تصویر', default='default.png')
+    # image = models.CharField(max_length=200, blank=True, verbose_name='آدرس تصویر')
     is_deleted = models.BooleanField(default=False, verbose_name='حذف شده / نشده')
     tags = models.ManyToManyField(ProductTag, blank=True, verbose_name='تگ', default=None)
 

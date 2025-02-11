@@ -1,28 +1,48 @@
 from rest_framework import serializers
-from .models import Products, Users
-# from django.contrib.auth import get_user_model
-#
-# User = get_user_model()
+from django.contrib.auth.models import User
+from . import models
 
-class products_serializer(serializers.ModelSerializer):
-    # time_field = serializers.DateTimeField(format='%H:%M')  # فقط ساعت و دقیقه
-    # date_field = serializers.DateTimeField(format='%Y-%m-%d')  # فقط تاریخ
+from rest_framework import serializers
+from django.contrib.auth.models import User
+from django.contrib.auth.password_validation import validate_password
+
+from .admin import ProductsInfoAdmin
+
+
+class RegisterSerializer(serializers.ModelSerializer):
+    password = serializers.CharField(
+        write_only=True, required=True, validators=[validate_password])
 
     class Meta:
-        model =  Products
-        # fields = ['title', 'price', 'quantity','content', 'is_done', 'slug','time_field', 'date_field']
-        fields = '__all__'
-        # read_only_fields =
+        model = User
+        fields = ('username', 'password')
 
-class UserSerializer(serializers.ModelSerializer):
+    def create(self, validated_data):
+        user = User.objects.create_user(
+            username=validated_data['username'],
+            password=validated_data['password']
+        )
+        return user
+
+class ProductsInfoSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Users
+        model = models.ProductsInfo
         fields = '__all__'
 
-# class userserilizer(serializers.ModelSerializer):
-#     todos = todoserilizer(read_only=True, many=True) # why todos? cause it's the "related name" in models.py
-#
-#
-#     class Meta:
-#         model = User
-#         fields = '__all__'
+class ProductCategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Categories
+        fields = '__all__'
+
+class ProductTagSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.ProductTag
+        fields = '__all__'
+
+class ProductSerializer(serializers.ModelSerializer):
+    Info = ProductsInfoSerializer()
+    category = ProductCategorySerializer()
+    tags = ProductTagSerializer(many=True)
+    class Meta:
+        model = models.Products
+        fields = '__all__'

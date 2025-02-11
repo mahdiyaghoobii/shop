@@ -4,10 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d346ba8d-3471-4fb1-81d1-362c192cc44f" name="Changes" comment="models.py optimized&#10;admin.py completed">
-      <change afterPath="$PROJECT_DIR$/home/migrations/0003_productpublisher_remove_products_test_and_more.py" afterDir="false" />
+    <list default="true" id="d346ba8d-3471-4fb1-81d1-362c192cc44f" name="Changes" comment="models.py optimized&#10;admin.py completed&#10;publisher set as a foreignkey model of Product Info in models.py">
+      <change afterPath="$PROJECT_DIR$/contact_module/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/contact_module/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/contact_module/templates/contact_module/contact-us.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/contact_module/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/migrations/0002_rename_name_users_username_users_groups_and_more.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/migrations/0003_alter_products_image.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/migrations/0002_products_test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/migrations/0003_productpublisher_remove_products_test_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/serializer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/home/signin.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/home/signin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/Serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/Serializer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/templates/main/product-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/main/product-details.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/shop/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/shop/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/shared/site_header_partial.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/shared/site_header_partial.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +40,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -34,6 +54,9 @@
     &quot;assignee&quot;: &quot;boogey7&quot;
   }
 }</component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="b89fa2d7-b7f9-4e76-98e2-12a168079e12" />
+  </component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/boogey7/shop.git&quot;,
@@ -55,18 +78,22 @@
   "keyToString": {
     "DefaultHtmlFileTemplate": "HTML File",
     "Django Server.shop.executor": "Run",
+    "Notification.DisplayName-DoNotAsk-GitHub Copilot": "GitHub Copilot",
+    "Notification.DoNotAsk-GitHub Copilot": "true",
+    "Python.1.executor": "Run",
+    "Python.script.executor": "Run",
     "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "django.template.preview.state": "SHOW_EDITOR",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "D:/py/git",
+    "last_opened_file_path": "D:/py/django-pr/shop/contact_module/templates/contact_module",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
+    "settings.editor.selected.configurable": "Errors",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -78,6 +105,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\py\django-pr\shop\contact_module\templates\contact_module" />
       <recent name="D:\py\django-pr\shop\main\templates\main" />
       <recent name="D:\py\django-pr\shop\static" />
     </key>
@@ -138,7 +166,14 @@
       <workItem from="1738071652694" duration="10359000" />
       <workItem from="1738155597530" duration="468000" />
       <workItem from="1738156148669" duration="178000" />
-      <workItem from="1738157695537" duration="3857000" />
+      <workItem from="1738157695537" duration="19752000" />
+      <workItem from="1738269666380" duration="30292000" />
+      <workItem from="1738671231465" duration="3892000" />
+      <workItem from="1738845280127" duration="2458000" />
+      <workItem from="1738922373113" duration="14935000" />
+      <workItem from="1739100954861" duration="8656000" />
+      <workItem from="1739189257496" duration="13540000" />
+      <workItem from="1739313319884" duration="295000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <option name="closed" value="true" />
@@ -188,7 +223,23 @@
       <option name="project" value="LOCAL" />
       <updated>1738163717893</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="models.py optimized&#10;admin.py completed">
+      <option name="closed" value="true" />
+      <created>1738164615531</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1738164615531</updated>
+    </task>
+    <task id="LOCAL-00008" summary="models.py optimized&#10;admin.py completed&#10;publisher set as a foreignkey model of Product Info in models.py">
+      <option name="closed" value="true" />
+      <created>1738164742946</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1738164742946</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -217,6 +268,12 @@
     <MESSAGE value="add user-table" />
     <MESSAGE value="add user-table , userinfo and WebsiteInfo-table to models.py" />
     <MESSAGE value="models.py optimized&#10;admin.py completed" />
-    <option name="LAST_COMMIT_MESSAGE" value="models.py optimized&#10;admin.py completed" />
+    <MESSAGE value="models.py optimized&#10;admin.py completed&#10;publisher set as a foreignkey model of Product Info in models.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="models.py optimized&#10;admin.py completed&#10;publisher set as a foreignkey model of Product Info in models.py" />
+    <option name="LAST_CHUNK_COMMIT_MESSAGE" value="models.py optimized&#10;admin.py completed&#10;publisher set as a foreignkey model of Product Info in models.py" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/shop$1.coverage" NAME="1 Coverage Results" MODIFIED="1738513293719" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Desktop" />
+    <SUITE FILE_PATH="coverage/shop$script.coverage" NAME="script Coverage Results" MODIFIED="1738676259895" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Desktop" />
   </component>
 </project>

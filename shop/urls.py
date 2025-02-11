@@ -18,15 +18,25 @@ from django.contrib import admin
 from django.contrib.messages import api
 from django.urls import path, include
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+from media import images
+from django.conf import settings
+import home
+from django.conf.urls.static import static
+
 from home import views
 
 urlpatterns = [
+    path('signup/', home.views.RegisterView.as_view(), name='signup'),
+    path('signin/', home.views.CustomTokenObtainPairView.as_view(), name='signin'),
+    # path('signup/', home.views.signup_user, name='signup'),
+    path('product/', include('home.urls'), name='product'),
+    path('contact-us/', include('contact_module.urls'), name='contact-us'),
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
     # path('api/', include('api.urls')),
-    path('best_product/', views.BestProductSlider.as_view(), name='best_product'),
+    # path('best_product/', views.BestProductSlider.as_view(), name='best_product'),
     path('', include('main.urls')),
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
