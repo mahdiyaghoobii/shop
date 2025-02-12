@@ -4,109 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d346ba8d-3471-4fb1-81d1-362c192cc44f" name="Changes" comment="{&#10;    &quot;error&quot;: {&#10;        &quot;message&quot;: &quot;You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.&quot;,&#10;        &quot;type&quot;: &quot;insufficient_quota&quot;,&#10;        &quot;param&quot;: null,&#10;        &quot;code&quot;: &quot;insufficient_quota&quot;&#10;    }&#10;}">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/6d4b9b11-9177-4fe3-988c-98ebefbdfba4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/6d4b9b11-9177-4fe3-988c-98ebefbdfba4/storage_v2/_src_/database/eshopdb.mWIAqQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/6d4b9b11-9177-4fe3-988c-98ebefbdfba4/storage_v2/_src_/database/eshopdb.mWIAqQ/schema/information_schema.FNRwLQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/6d4b9b11-9177-4fe3-988c-98ebefbdfba4/storage_v2/_src_/database/eshopdb.mWIAqQ/schema/pg_catalog.0S1ZNQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/6d4b9b11-9177-4fe3-988c-98ebefbdfba4/storage_v2/_src_/database/eshopdb.mWIAqQ/schema/public.abK9xQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/developer-tools.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Changes.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Changes/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2_12_2025_2_47_AM_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2_12_2025_2_47_AM__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/contact_module/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/contact_module/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/contact_module/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/contact_module/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/contact_module/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/contact_module/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/images/animals-farm.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/images/default.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/animate.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/font-awesome.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/prettyPhoto.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/price-range.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/responsive.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/BYekan.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/BYekan.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/BYekan.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/BYekan.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/FontAwesome.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/fontawesome-webfont.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/fontawesome-webfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/glyphicons-halflings-regular.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/glyphicons-halflings-regular.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/404/404.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/blog/Customer.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/blog/blog-one.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/blog/blog-one.psd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/blog/socials.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/cart/Card.psd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/cart/one.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/cart/three.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/cart/two.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/home/About-Logo.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/home/Gallery.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/home/Gallery.psd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/home/Map.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/home/Slider-01.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/home/Slider.psd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/home/Tabs.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/home/Tabs.psd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/home/bg_border.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/home/girl2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/home/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/home/map.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/home/new.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/home/partner1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/home/partner2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/home/partner3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/home/partner4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/home/pricing.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/home/product.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/home/product1.psd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/home/sale.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/home/searchicon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/home/shipping.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/product-details/1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/product-details/Bale.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/product-details/Instagram.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/product-details/Main.psd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/product-details/Similar.psd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/product-details/Socials.psd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/product-details/Soroush.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/product-details/Telegram.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/product-details/new.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/product-details/new.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/product-details/rating.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/product-details/share.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/product-details/similar1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/product-details/similar2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/product-details/similar3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/shop/advertisement.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/shop/product.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/contact.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/gmaps.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/html5shiv.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/jquery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/jquery.prettyPhoto.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/jquery.scrollUp.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/price-range.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="d346ba8d-3471-4fb1-81d1-362c192cc44f" name="Changes" comment="{&#10;    &quot;error&quot;: {&#10;        &quot;message&quot;: &quot;Incorrect API key provided: sk-proj-********************************************************************************************************************************************************MowA. You can find your API key at https://platform.openai.com/account/api-keys.&quot;,&#10;        &quot;type&quot;: &quot;invalid_request_error&quot;,&#10;        &quot;param&quot;: null,&#10;        &quot;code&quot;: &quot;invalid_api_key&quot;&#10;    }&#10;}">
+      <change afterPath="$PROJECT_DIR$/.idea/git_toolbox_blame.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/git_toolbox_prj.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,7 +74,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.github.blarc.ai.commits.intellij.plugin.settings.AppSettingsConfigurable",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "settings.editor.splitter.proportion": "0.2967359",
     "vue.rearranger.settings.migration": "true"
   },
@@ -258,7 +158,7 @@
       <workItem from="1739313319884" duration="295000" />
       <workItem from="1739313655093" duration="860000" />
       <workItem from="1739354978796" duration="369000" />
-      <workItem from="1739355369907" duration="672000" />
+      <workItem from="1739355369907" duration="956000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <option name="closed" value="true" />
@@ -340,7 +240,15 @@
       <option name="project" value="LOCAL" />
       <updated>1739314538466</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="{&#10;    &quot;error&quot;: {&#10;        &quot;message&quot;: &quot;Incorrect API key provided: sk-proj-********************************************************************************************************************************************************MowA. You can find your API key at https://platform.openai.com/account/api-keys.&quot;,&#10;        &quot;type&quot;: &quot;invalid_request_error&quot;,&#10;        &quot;param&quot;: null,&#10;        &quot;code&quot;: &quot;invalid_api_key&quot;&#10;    }&#10;}">
+      <option name="closed" value="true" />
+      <created>1739356058167</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1739356058167</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -371,7 +279,8 @@
     <MESSAGE value="models.py optimized&#10;admin.py completed" />
     <MESSAGE value="models.py optimized&#10;admin.py completed&#10;publisher set as a foreignkey model of Product Info in models.py" />
     <MESSAGE value="add requirements" />
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="{&#10;    &quot;error&quot;: {&#10;        &quot;message&quot;: &quot;Incorrect API key provided: sk-proj-********************************************************************************************************************************************************MowA. You can find your API key at https://platform.openai.com/account/api-keys.&quot;,&#10;        &quot;type&quot;: &quot;invalid_request_error&quot;,&#10;        &quot;param&quot;: null,&#10;        &quot;code&quot;: &quot;invalid_api_key&quot;&#10;    }&#10;}" />
+    <option name="LAST_COMMIT_MESSAGE" value="{&#10;    &quot;error&quot;: {&#10;        &quot;message&quot;: &quot;Incorrect API key provided: sk-proj-********************************************************************************************************************************************************MowA. You can find your API key at https://platform.openai.com/account/api-keys.&quot;,&#10;        &quot;type&quot;: &quot;invalid_request_error&quot;,&#10;        &quot;param&quot;: null,&#10;        &quot;code&quot;: &quot;invalid_api_key&quot;&#10;    }&#10;}" />
     <option name="LAST_CHUNK_COMMIT_MESSAGE" value="models.py optimized&#10;admin.py completed&#10;publisher set as a foreignkey model of Product Info in models.py" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
