@@ -20,14 +20,14 @@ from django.urls import path, include
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from media import images
 from django.conf import settings
-import home
+import account.views
 from django.conf.urls.static import static
 
 from home import views
 
 urlpatterns = [
-    path('signup/', home.views.RegisterView.as_view(), name='signup'),
-    path('signin/', home.views.CustomTokenObtainPairView.as_view(), name='signin'),
+    path('signup/', account.views.RegisterView.as_view(), name='signup'),
+    path('signin/', account.views.CustomTokenObtainPairView.as_view(), name='signin'),
     # path('signup/', home.views.signup_user, name='signup'),
     path('product/', include('home.urls'), name='product'),
     path('contact-us/', include('contact_module.urls'), name='contact-us'),

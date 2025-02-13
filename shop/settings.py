@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'django_render_partial',
     'contact_module.apps.ContactModuleConfig',
     'corsheaders',
+    'account.apps.AccountConfig'
 
 ]
 
@@ -101,7 +102,7 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '5432',
     }}
-
+AUTH_USER_MODEL = 'account.User'
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 

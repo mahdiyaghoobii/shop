@@ -19,26 +19,6 @@ from rest_framework_simplejwt.views import TokenObtainPairView
 #     page_size_query_param = 'page_size'
 #     max_page_size = 100
 
-def signin_user(request):
-    return render(request, 'home/signin.html')
-
-class RegisterView(APIView):
-    authentication_classes = [JWTAuthentication]
-    def post(self, request):
-        serializer = RegisterSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response({
-                "message": "User created successfully",
-                "user": serializer.data
-            }, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-class CustomTokenObtainPairView(TokenObtainPairView):
-    def post(self, request, *args, **kwargs):
-        response = super().post(request, *args, **kwargs)
-        # You can customize the response here if needed
-        return response
-
 class productlist(APIView):
     def get(self, request: Request):
         prlist = Products.objects.all()

@@ -68,16 +68,16 @@ class CategoriesAdmin(admin.ModelAdmin):
     list_filter = ('name',)
     ordering = ('name',)
 
-@admin.register(models.Users)
-class UsersAdmin(admin.ModelAdmin):
-    list_display = ('username', 'email', 'phone')
-    search_fields = ('username', 'email', 'phone')
-    list_filter = ('email', 'phone')
-    ordering = ('username',)
-
-@admin.register(models.UserInfo)
-class UserInfoAdmin(admin.ModelAdmin):
-    list_display = ('user', 'address', 'postal_code', 'home_phone')
-    search_fields = ('user__username', 'address', 'postal_code')
-    list_filter = ('postal_code', 'home_phone')
-    ordering = ('user__username',)
+# @admin.register(models.Users)
+# class UsersAdmin(admin.ModelAdmin):
+#     list_display = ('username', 'email', 'phone')
+#     search_fields = ('username', 'email', 'phone')
+#     list_filter = ('email', 'phone')
+#     ordering = ('username',)
+#
+# @admin.register(models.UserInfo)
+# class UserInfoAdmin(admin.ModelAdmin):
+#     list_display = ('user', 'address', 'postal_code', 'home_phone')
+#     search_fields = ('user__username', 'address', 'postal_code')
+#     list_filter = ('postal_code', 'home_phone')
+#     ordering = ('user__username',)

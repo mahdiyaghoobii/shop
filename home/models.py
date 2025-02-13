@@ -20,36 +20,36 @@ class Info(models.Model):
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
 
-class Users(AbstractBaseUser, PermissionsMixin):
-    username = models.CharField(max_length=100)
-    email = models.EmailField(unique=True, blank=True, null=True)
-    password = models.CharField(max_length=100)  # Note: Store hashed passwords for security
-    phone = models.CharField(max_length=100, unique=True)
+# class Users(AbstractBaseUser, PermissionsMixin):
+#     username = models.CharField(max_length=100)
+#     email = models.EmailField(unique=True, blank=True, null=True)
+#     password = models.CharField(max_length=100)  # Note: Store hashed passwords for security
+#     phone = models.CharField(max_length=100, unique=True)
+#
+#     groups = models.ManyToManyField(
+#         'auth.Group',
+#         related_name='custom_user_set',  # Unique related_name
+#         blank=True,
+#         verbose_name='groups',
+#         help_text='The groups this user belongs to. A user will get all permissions granted to each of their groups.',
+#     )
+#     user_permissions = models.ManyToManyField(
+#         'auth.Permission',
+#         related_name='custom_user_set',  # Unique related_name
+#         blank=True,
+#         verbose_name='user permissions',
+#         help_text='Specific permissions for this user.',
+#     )
+#
+#     def __str__(self):
+#         return self.username
 
-    groups = models.ManyToManyField(
-        'auth.Group',
-        related_name='custom_user_set',  # Unique related_name
-        blank=True,
-        verbose_name='groups',
-        help_text='The groups this user belongs to. A user will get all permissions granted to each of their groups.',
-    )
-    user_permissions = models.ManyToManyField(
-        'auth.Permission',
-        related_name='custom_user_set',  # Unique related_name
-        blank=True,
-        verbose_name='user permissions',
-        help_text='Specific permissions for this user.',
-    )
-
-    def __str__(self):
-        return self.username
-
-class UserInfo(models.Model):
-    user = models.OneToOneField(Users, on_delete=models.CASCADE, related_name='info', default=None)
-    address = models.CharField(max_length=100)
-    postal_code = models.CharField(max_length=100)
-    home_phone = models.CharField(max_length=100)
-    payment_info = JSONField(blank=True, default=list, help_text="Store detailed payment information as JSON", editable=False)
+# class UserInfo(models.Model):
+#     user = models.OneToOneField(Users, on_delete=models.CASCADE, related_name='info', default=None)
+#     address = models.CharField(max_length=100)
+#     postal_code = models.CharField(max_length=100)
+#     home_phone = models.CharField(max_length=100)
+#     payment_info = JSONField(blank=True, default=list, help_text="Store detailed payment information as JSON", editable=False)
 
     def __str__(self):
         return self.user.phone  # Use the related user's phone number
