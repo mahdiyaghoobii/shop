@@ -51,14 +51,14 @@ class Info(models.Model):
 #     home_phone = models.CharField(max_length=100)
 #     payment_info = JSONField(blank=True, default=list, help_text="Store detailed payment information as JSON", editable=False)
 
-    def __str__(self):
-        return self.user.phone  # Use the related user's phone number
-
-    def save(self, *args, **kwargs):
-        # Ensure the payment_info is a list if it's empty
-        if not self.payment_info:
-            self.payment_info = []
-        super().save(*args, **kwargs)
+    # def __str__(self):
+    #     return self.user.phone  # Use the related user's phone number
+    #
+    # def save(self, *args, **kwargs):
+    #     # Ensure the payment_info is a list if it's empty
+    #     if not self.payment_info:
+    #         self.payment_info = []
+    #     super().save(*args, **kwargs)
 
 class Categories(models.Model):
     name = models.CharField(max_length=100, verbose_name='عنوان', db_index=True)

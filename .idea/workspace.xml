@@ -4,29 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d346ba8d-3471-4fb1-81d1-362c192cc44f" name="Changes" comment="- Create a new app for user authentication&#10;- Implement user login (by JWT) functionality&#10;- Optimize existing code for better performance">
-      <change afterPath="$PROJECT_DIR$/account/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/account/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/account/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/account/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/account/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/account/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/account/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/account/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/images/animals-farm_Pc9v7i7.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6d4b9b11-9177-4fe3-988c-98ebefbdfba4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6d4b9b11-9177-4fe3-988c-98ebefbdfba4.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6d4b9b11-9177-4fe3-988c-98ebefbdfba4/storage_v2/_src_/database/eshopdb.mWIAqQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6d4b9b11-9177-4fe3-988c-98ebefbdfba4/storage_v2/_src_/database/eshopdb.mWIAqQ/schema/public.abK9xQ.meta" afterDir="false" />
+    <list default="true" id="d346ba8d-3471-4fb1-81d1-362c192cc44f" name="Changes" comment="update requirements and workspace configuration for new user authentication app">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contact_module/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/contact_module/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/migrations/0002_rename_name_users_username_users_groups_and_more.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/migrations/0003_alter_products_image.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/serializer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/shop/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/shop/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,7 +163,7 @@
       <workItem from="1739359125187" duration="431000" />
       <workItem from="1739359566096" duration="8628000" />
       <workItem from="1739478426728" duration="608000" />
-      <workItem from="1739479479362" duration="483000" />
+      <workItem from="1739479479362" duration="5600000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <option name="closed" value="true" />
@@ -306,7 +285,23 @@
       <option name="project" value="LOCAL" />
       <updated>1739480031208</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="models.py optimized&#10;admin.py completed&#10;publisher set as a foreignkey model of Product Info in models.py">
+      <option name="closed" value="true" />
+      <created>1739480194435</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1739480194435</updated>
+    </task>
+    <task id="LOCAL-00017" summary="update requirements and workspace configuration for new user authentication app">
+      <option name="closed" value="true" />
+      <created>1739480292666</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1739480292666</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -335,13 +330,13 @@
     <MESSAGE value="add user-table" />
     <MESSAGE value="add user-table , userinfo and WebsiteInfo-table to models.py" />
     <MESSAGE value="models.py optimized&#10;admin.py completed" />
-    <MESSAGE value="models.py optimized&#10;admin.py completed&#10;publisher set as a foreignkey model of Product Info in models.py" />
     <MESSAGE value="add requirements" />
     <MESSAGE value="{&#10;    &quot;error&quot;: {&#10;        &quot;message&quot;: &quot;Incorrect API key provided: sk-proj-********************************************************************************************************************************************************MowA. You can find your API key at https://platform.openai.com/account/api-keys.&quot;,&#10;        &quot;type&quot;: &quot;invalid_request_error&quot;,&#10;        &quot;param&quot;: null,&#10;        &quot;code&quot;: &quot;invalid_api_key&quot;&#10;    }&#10;}" />
     <MESSAGE value="add GitToolBox project and blame settings" />
     <MESSAGE value="- Create a new app for user authentication&#10;- Implement user login (by JWT) functionality&#10;- Optimize existing code for better performance" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Create a new app for user authentication&#10;- Implement user login (by JWT) functionality&#10;- Optimize existing code for better performance" />
-    <option name="LAST_CHUNK_COMMIT_MESSAGE" value="models.py optimized&#10;admin.py completed&#10;publisher set as a foreignkey model of Product Info in models.py" />
+    <MESSAGE value="models.py optimized&#10;admin.py completed&#10;publisher set as a foreignkey model of Product Info in models.py" />
+    <MESSAGE value="update requirements and workspace configuration for new user authentication app" />
+    <option name="LAST_COMMIT_MESSAGE" value="update requirements and workspace configuration for new user authentication app" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/shop$1.coverage" NAME="1 Coverage Results" MODIFIED="1738513293719" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Desktop" />

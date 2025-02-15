@@ -11,7 +11,7 @@ from rest_framework_simplejwt.authentication import JWTAuthentication
 from .models import Products
 from django.contrib.auth import authenticate, login, logout
 from rest_framework.authtoken.models import Token
-from .serializer import RegisterSerializer, ProductSerializer
+from .serializer import RegisterSerializer, ProductSerializer, MostSellProductSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
 
 # class CustomPagination(pagination.PageNumberPagination):
@@ -56,5 +56,5 @@ class ProductFilter(APIView):
 class product_most_sells(APIView):
     def get(self, request: Request):
         mslist = Products.objects.all().order_by('-sell_count')[:10]
-        product_most_sells_serilizer = ProductSerializer(mslist, many=True)
+        product_most_sells_serilizer = MostSellProductSerializer(mslist, many=True)
         return Response(product_most_sells_serilizer.data, status=status.HTTP_200_OK)

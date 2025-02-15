@@ -45,3 +45,11 @@ class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Products
         fields = '__all__'
+
+class MostSellProductSerializer(serializers.ModelSerializer):
+    # Info = ProductsInfoSerializer()
+    # category = ProductCategorySerializer()
+    # tags = ProductTagSerializer(many=True)
+    class Meta:
+        model = models.Products
+        fields = 'title', 'price', 'price_after_discount', 'image'

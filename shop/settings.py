@@ -30,8 +30,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
-    'f215-2a12-5940-f25a-00-2.ngrok-free.app',
-    # سایر آدرس‌ها
+    '884e-2a12-5940-f25a-00-2.ngrok-free.app',
 ]
 
 
