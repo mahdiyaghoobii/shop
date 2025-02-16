@@ -8,6 +8,7 @@ from django.contrib.auth.password_validation import validate_password
 
 from .admin import ProductsInfoAdmin
 
+
 class RegisterSerializer(serializers.ModelSerializer):
     password = serializers.CharField(
         write_only=True, required=True, validators=[validate_password])
@@ -23,28 +24,34 @@ class RegisterSerializer(serializers.ModelSerializer):
         )
         return user
 
+
 class ProductsInfoSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.ProductsInfo
         fields = '__all__'
+
 
 class ProductCategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Categories
         fields = '__all__'
 
+
 class ProductTagSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.ProductTag
         fields = '__all__'
 
+
 class ProductSerializer(serializers.ModelSerializer):
     Info = ProductsInfoSerializer()
     category = ProductCategorySerializer()
     tags = ProductTagSerializer(many=True)
+
     class Meta:
         model = models.Products
         fields = '__all__'
+
 
 class MostSellProductSerializer(serializers.ModelSerializer):
     # Info = ProductsInfoSerializer()

@@ -3,6 +3,8 @@ from django.utils.html import format_html
 from django.utils.safestring import mark_safe
 
 from home import models
+
+
 # Register your models here.
 
 @admin.register(models.Products)
@@ -17,10 +19,12 @@ class ProductAdmin(admin.ModelAdmin):
 
     def get_categories(self, obj):
         return ", ".join([category.name for category in obj.category.all()])
+
     get_categories.short_description = 'Categories'
 
     def get_product_tag(self, obj):
         return ", ".join([tag.title for tag in obj.tags.all()])
+
     get_product_tag.short_description = 'Tags'
 
     def image_preview(self, obj):
@@ -29,11 +33,12 @@ class ProductAdmin(admin.ModelAdmin):
         return "No Image"
 
     image_preview.short_description = 'تصویر'
-        # Set a user-friendly column name in the admin panel
+    # Set a user-friendly column name in the admin panel
+
 
 @admin.register(models.ProductPublisher)
 class ProductPublisherAdmin(admin.ModelAdmin):
-    list_display = ('title', )
+    list_display = ('title',)
     search_fields = ('title',)
     # list_filter = ('is_active',)
     ordering = ('title',)
@@ -45,9 +50,11 @@ class ProductTagAdmin(admin.ModelAdmin):
     search_fields = ('title',)
     ordering = ('title',)
 
+
 @admin.register(models.ProductsInfo)
 class ProductsInfoAdmin(admin.ModelAdmin):
-    list_display = (f'get_product_title', 'seller_name', 'writer', 'publisher', 'print', 'translator', 'pages', 'language')
+    list_display = (
+        f'get_product_title', 'seller_name', 'writer', 'publisher', 'print', 'translator', 'pages', 'language')
     search_fields = ('seller_name', 'writer', 'print', 'translator', 'pages', 'language')
     list_filter = ('seller_name', 'writer', 'publisher', 'print', 'translator', 'pages', 'language')
     ordering = ('seller_name',)
@@ -61,6 +68,7 @@ class ProductsInfoAdmin(admin.ModelAdmin):
 
     get_product_title.short_description = 'Product Title'
 
+
 @admin.register(models.Categories)
 class CategoriesAdmin(admin.ModelAdmin):
     list_display = ('name', 'content', 'get_count')
@@ -70,6 +78,7 @@ class CategoriesAdmin(admin.ModelAdmin):
 
     def get_count(self, obj):
         return obj.products_set.count()
+
 
 # @admin.register(models.Users)
 # class UsersAdmin(admin.ModelAdmin):

@@ -107,11 +107,11 @@ class Categories(models.Model):
 
 @receiver(post_save, sender=Categories)
 def update_product_prices(sender, instance, created, **kwargs):
-    if hasattr(instance, 'discount') and instance.discount:  #اگر دسته بندی تخفیف داشت
-        if instance.discount.is_valid():  #اگر تخفیف معتبر بود
-            products = Products.objects.filter(category=instance)  #محصولات مرتبط با این دسته بندی را پیدا کن
+    if hasattr(instance, 'discount') and instance.discount:  # اگر دسته بندی تخفیف داشت
+        if instance.discount.is_valid():  # اگر تخفیف معتبر بود
+            products = Products.objects.filter(category=instance)  # محصولات مرتبط با این دسته بندی را پیدا کن
             for product in products:
-                product.save()  #محصولات رو save کن تا قیمت بعد از تخفیف به روز شود
+                product.save()  # محصولات رو save کن تا قیمت بعد از تخفیف به روز شود
 
 
 class ProductTag(models.Model):
@@ -120,7 +120,7 @@ class ProductTag(models.Model):
 
     class Meta:
         verbose_name = 'تگ محصول'
-        verbose_name_plural = 'تگ ها'  #tag ----> "tags"
+        verbose_name_plural = 'تگ ها'  # tag ----> "tags"
 
     def __str__(self):
         return self.title
