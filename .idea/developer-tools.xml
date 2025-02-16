@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DeveloperToolsToolWindowSettingsV1" lastSelectedContentNodeId="base32-encoder-decoder">
+  <component name="DeveloperToolsToolWindowSettingsV1" lastSelectedContentNodeId="hmac-transformer">
     <developerToolsConfigurations>
       <developerToolConfiguration developerToolId="uuid-generator" id="80dd4474-56c4-4d6d-b3d2-9956f401ff71" name="Workbench">
         <properties>
@@ -8,6 +8,25 @@
           <property key="UUIDv6LocalInterface" type="CONFIGURATION" value="kotlin.String|:40:c2:ba:3b:7c:13" />
         </properties>
       </developerToolConfiguration>
+      <developerToolConfiguration developerToolId="base32-encoder-decoder" id="792b4b89-86e7-4776-a74b-e232c29a75d8" name="Workbench">
+        <properties>
+          <property key="sourceText" type="INPUT" value="kotlin.String|pbkdf2_sha256$870000$vmtinGXVgvISTb8hyQKWmh$0B21/Kn0uyiayFbAyQOFvYugoKHvYgxBPSHOHTCDPdM=" />
+          <property key="targetText" type="INPUT" value="kotlin.String|OBRGWZDGGJPXG2DBGI2TMJBYG4YDAMBQER3G25DJNZDVQVTHOZEVGVDCHBUHSUKLK5WWQJBQIIZDCL2LNYYHK6LJMF4UMYSBPFIU6RTWLF2WO32LJB3FSZ3YIJIFGSCPJBKEGRCQMRGT2===" />
+        </properties>
+      </developerToolConfiguration>
+      <developerToolConfiguration developerToolId="hmac-transformer" id="de50416b-99d0-47f7-ba25-ab69132d9f44" name="Workbench">
+        <properties>
+          <property key="sourceText" type="INPUT" value="kotlin.String|pbkdf2_sha256$870000$vmtinGXVgvISTb8hyQKWmh$0B21/Kn0uyiayFbAyQOFvYugoKHvYgxBPSHOHTCDPdM=" />
+          <property key="algorithm" type="CONFIGURATION" value="kotlin.String|HMACSHA384" />
+        </properties>
+      </developerToolConfiguration>
+      <developerToolConfiguration developerToolId="base64-encoder-decoder" id="945935d7-a78c-41de-bd78-9b3c2c791041" name="Workbench">
+        <properties>
+          <property key="sourceText" type="INPUT" value="kotlin.String|pbkdf2_sha256$870000$vmtinGXVgvISTb8hyQKWmh$0B21/Kn0uyiayFbAyQOFvYugoKHvYgxBPSHOHTCDPdM=" />
+          <property key="targetText" type="INPUT" value="kotlin.String|cGJrZGYyX3NoYTI1NiQ4NzAwMDAkdm10aW5HWFZndklTVGI4aHlRS1dtaCQwQjIxL0tuMHV5aWF5RmJBeVFPRnZZdWdvS0h2WWd4QlBTSE9IVENEUGRNPQ==" />
+        </properties>
+      </developerToolConfiguration>
     </developerToolsConfigurations>
+    <expandedGroupNodeIds />
   </component>
 </project>

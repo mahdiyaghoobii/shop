@@ -51,7 +51,7 @@ INSTALLED_APPS = [
     'django_render_partial',
     'contact_module.apps.ContactModuleConfig',
     'corsheaders',
-    'account.apps.AccountConfig'
+    'account.apps.AccountConfig',
 
 ]
 
@@ -146,8 +146,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 REST_FRAMEWORK = {
-    # 'DEFAULT_AUTHENTICATION_CLASSES': ['rest_framework_simplejwt.authentication.JWTAuthentication',],
-    # 'DEFAULT_PERMISSION_CLASSES' : ('rest_framework.permissions.IsAuthenticated',),
+    'DEFAULT_AUTHENTICATION_CLASSES': ['rest_framework_simplejwt.authentication.JWTAuthentication',],
+    'DEFAULT_PERMISSION_CLASSES' : ('rest_framework.permissions.IsAuthenticated',),
 }
 
 from datetime import timedelta

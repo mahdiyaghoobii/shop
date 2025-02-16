@@ -3,6 +3,7 @@ from django.http import JsonResponse
 from django.shortcuts import render
 from django.views import View, generic
 from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import generics, mixins, viewsets, status, pagination, permissions
@@ -20,6 +21,8 @@ from rest_framework_simplejwt.views import TokenObtainPairView
 #     max_page_size = 100
 
 class productlist(APIView):
+    authentication_classes = []  # غیرفعال کردن JWT برای این ویو
+    permission_classes = [AllowAny]  # اجازه دسترسی به همه کاربران
     def get(self, request: Request):
         prlist = Products.objects.all()
         # paginator = CustomPagination()
@@ -29,6 +32,8 @@ class productlist(APIView):
         return Response(product_serializer.data, status=status.HTTP_200_OK)
 
 class ProductFilter(APIView):
+    authentication_classes = []
+    permission_classes = [AllowAny]
     def get(self, request: Request):
         # Get query parameters for 'tag' and 'category'
         tag_title = request.query_params.get('tag', None)
@@ -54,6 +59,8 @@ class ProductFilter(APIView):
         return Response(product_serializer.data, status=status.HTTP_200_OK)
 
 class product_most_sells(APIView):
+    authentication_classes = []
+    permission_classes = [AllowAny]
     def get(self, request: Request):
         mslist = Products.objects.all().order_by('-sell_count')[:10]
         product_most_sells_serilizer = MostSellProductSerializer(mslist, many=True)

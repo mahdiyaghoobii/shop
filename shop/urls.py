@@ -28,6 +28,7 @@ from home import views
 urlpatterns = [
     path('signup/', account.views.RegisterView.as_view(), name='signup'),
     path('signin/', account.views.CustomTokenObtainPairView.as_view(), name='signin'),
+    path('signout/', account.views.SignoutUser.as_view(), name='signout'),
     # path('signup/', home.views.signup_user, name='signup'),
     path('product/', include('home.urls'), name='product'),
     path('contact-us/', include('contact_module.urls'), name='contact-us'),

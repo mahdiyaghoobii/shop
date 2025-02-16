@@ -52,4 +52,4 @@ class MostSellProductSerializer(serializers.ModelSerializer):
     # tags = ProductTagSerializer(many=True)
     class Meta:
         model = models.Products
-        fields = 'title', 'price', 'price_after_discount', 'image'
+        fields = 'title', 'price', 'price_after_discount', 'image', 'sell_count'
