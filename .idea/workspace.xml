@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d346ba8d-3471-4fb1-81d1-362c192cc44f" name="Changes" comment="update dependencies">
-      <change afterPath="$PROJECT_DIR$/home/migrations/0002_discount_remove_products_price_after_discount_and_more.py" afterDir="false" />
+    <list default="true" id="d346ba8d-3471-4fb1-81d1-362c192cc44f" name="Changes" comment="update workspace configuration and add tasks for dependency updates">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/models.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,7 +167,7 @@
       <workItem from="1739479479362" duration="5600000" />
       <workItem from="1739623406500" duration="5131000" />
       <workItem from="1739628851060" duration="844000" />
-      <workItem from="1739700174879" duration="19976000" />
+      <workItem from="1739700174879" duration="20334000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <option name="closed" value="true" />
@@ -356,7 +353,39 @@
       <option name="project" value="LOCAL" />
       <updated>1739712297630</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="add Discount">
+      <option name="closed" value="true" />
+      <created>1739741437285</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1739741437285</updated>
+    </task>
+    <task id="LOCAL-00025" summary="add Discount model and update product pricing logic based on category discounts">
+      <option name="closed" value="true" />
+      <created>1739741454874</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1739741454874</updated>
+    </task>
+    <task id="LOCAL-00026" summary="add Discount model and update product and category fields for discount management">
+      <option name="closed" value="true" />
+      <created>1739741482116</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1739741482116</updated>
+    </task>
+    <task id="LOCAL-00027" summary="update workspace configuration and add tasks for dependency updates">
+      <option name="closed" value="true" />
+      <created>1739741496850</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1739741496850</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -396,7 +425,11 @@
     <MESSAGE value="enable CORS for all origins" />
     <MESSAGE value="add user signout functionality and update authentication permissions" />
     <MESSAGE value="update dependencies" />
-    <option name="LAST_COMMIT_MESSAGE" value="update dependencies" />
+    <MESSAGE value="add Discount" />
+    <MESSAGE value="add Discount model and update product pricing logic based on category discounts" />
+    <MESSAGE value="add Discount model and update product and category fields for discount management" />
+    <MESSAGE value="update workspace configuration and add tasks for dependency updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="update workspace configuration and add tasks for dependency updates" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/shop$1.coverage" NAME="1 Coverage Results" MODIFIED="1738513293719" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Desktop" />
