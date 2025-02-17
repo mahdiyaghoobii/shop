@@ -54,9 +54,9 @@ class ProductTagAdmin(admin.ModelAdmin):
 @admin.register(models.ProductsInfo)
 class ProductsInfoAdmin(admin.ModelAdmin):
     list_display = (
-        f'get_product_title', 'seller_name', 'writer', 'publisher', 'print', 'translator', 'pages', 'language')
-    search_fields = ('seller_name', 'writer', 'print', 'translator', 'pages', 'language')
-    list_filter = ('seller_name', 'writer', 'publisher', 'print', 'translator', 'pages', 'language')
+        f'get_product_title', 'seller_name', 'author', 'publisher', 'print', 'translator', 'pages', 'language')
+    search_fields = ('seller_name', 'author', 'print', 'translator', 'pages', 'language')
+    list_filter = ('seller_name', 'author', 'publisher', 'print', 'translator', 'pages', 'language')
     ordering = ('seller_name',)
 
     def get_product_title(self, obj):
