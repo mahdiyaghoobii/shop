@@ -10,7 +10,7 @@ from slugify import slugify as persian_slugify
 from datetime import datetime
 from django.db.models import JSONField
 from shop import settings
-from django.db.models.signals import post_save, m2m_changed
+from django.db.models.signals import post_save, m2m_changed, pre_delete
 from django.dispatch import receiver
 
 
@@ -105,15 +105,6 @@ class Categories(models.Model):
         return self.name
 
 
-@receiver(post_save, sender=Categories)
-def update_product_prices(sender, instance, created, **kwargs):
-    if hasattr(instance, 'discount') and instance.discount:  # اگر دسته بندی تخفیف داشت
-        if instance.discount.is_valid():  # اگر تخفیف معتبر بود
-            products = Products.objects.filter(category=instance)  # محصولات مرتبط با این دسته بندی را پیدا کن
-            for product in products:
-                product.save()  # محصولات رو save کن تا قیمت بعد از تخفیف به روز شود
-
-
 class ProductTag(models.Model):
     title = models.CharField(max_length=100, verbose_name='عنوان تگ', db_index=True)
     description = models.CharField(null=True, blank=True, verbose_name='توضیحات')
@@ -149,7 +140,7 @@ class ProductsInfo(models.Model):
                                 default='fa', verbose_name='زبان')
 
     def __str__(self):
-        return f'{self.seller_name} - {self.writer}'
+        return f'{self.seller_name} - {self.author}'
 
     class Meta:
         verbose_name = 'اطلاعات محصول'
@@ -166,7 +157,8 @@ class Products(models.Model):
                                 related_name='Product_Information', verbose_name='اطلاعات تکمیلی')
     category = models.ManyToManyField(Categories, blank=True, verbose_name='دسته بندی')
     quantity = models.PositiveIntegerField(default=0, verbose_name='تعداد')
-    slug = models.SlugField(max_length=100, unique=True, db_index=True, blank=True, null=True,verbose_name='عنوان در url')
+    slug = models.SlugField(max_length=100, unique=True, db_index=True, blank=True, null=True,
+                            verbose_name='عنوان در url')
     # rate = models.IntegerField(default=0, editable=False, verbose_name='امتیاز')
     sell_count = models.IntegerField(default=0, verbose_name='تعداد فروش')
     # test = models.CharField(null=True, blank=True)
@@ -186,23 +178,15 @@ class Products(models.Model):
     def save(self, *args, **kwargs):
         valid_discounts = []
 
-
-        for category in self.category.all():
-            if hasattr(category, 'discount') and category.discount:
-                if category.discount.is_valid():
-                    valid_discounts.append(category.discount.percentage)
+        for category in self.category.all().prefetch_related('discount'):
+            if category.discount and category.discount.is_valid():
+                valid_discounts.append(category.discount.percentage)
 
         max_discount = max(valid_discounts) if valid_discounts else 0
 
-        if max_discount:
+        if max_discount > 0:
             self.discounted_price = self.price * (100 - max_discount) // 100
         else:
             self.discounted_price = None
 
         super().save(*args, **kwargs)
-
-
-@receiver(m2m_changed, sender=Products.category.through)
-def update_products_on_category_change(sender, instance, action, **kwargs):
-    if action in ("post_add", "post_remove", "post_clear"):
-        instance.save()
