@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d346ba8d-3471-4fb1-81d1-362c192cc44f" name="Changes" comment="optimize workspace configuration and update task summaries">
+    <list default="true" id="d346ba8d-3471-4fb1-81d1-362c192cc44f" name="Changes" comment="optimized">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/serializer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/images/animals-farm_Pc9v7i7.jpg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,7 +172,8 @@
       <workItem from="1739623406500" duration="5131000" />
       <workItem from="1739628851060" duration="844000" />
       <workItem from="1739700174879" duration="20762000" />
-      <workItem from="1739784970661" duration="665000" />
+      <workItem from="1739784970661" duration="2444000" />
+      <workItem from="1739787447884" duration="5832000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <option name="closed" value="true" />
@@ -418,7 +423,15 @@
       <option name="project" value="LOCAL" />
       <updated>1739741919746</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="optimized">
+      <option name="closed" value="true" />
+      <created>1739785810849</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1739785810849</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -462,9 +475,9 @@
     <MESSAGE value="add Discount model and update product pricing logic based on category discounts" />
     <MESSAGE value="add Discount model and update product and category fields for discount management" />
     <MESSAGE value="update workspace configuration and add tasks for dependency updates" />
-    <MESSAGE value="optimized" />
     <MESSAGE value="optimize workspace configuration and update task summaries" />
-    <option name="LAST_COMMIT_MESSAGE" value="optimize workspace configuration and update task summaries" />
+    <MESSAGE value="optimized" />
+    <option name="LAST_COMMIT_MESSAGE" value="optimized" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/shop$1.coverage" NAME="1 Coverage Results" MODIFIED="1738513293719" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Desktop" />
