@@ -1,5 +1,7 @@
 from django.contrib.auth import get_user_model
 from rest_framework import serializers
+from unicodedata import category
+
 from account.models import User
 from . import models
 from rest_framework import serializers
@@ -54,9 +56,15 @@ class ProductSerializer(serializers.ModelSerializer):
 
 
 class MostSellProductSerializer(serializers.ModelSerializer):
-    # Info = ProductsInfoSerializer()
-    # category = ProductCategorySerializer()
-    # tags = ProductTagSerializer(many=True)
+    image_url = serializers.SerializerMethodField()
+    Info = ProductsInfoSerializer()
     class Meta:
         model = models.Products
-        fields = 'title', 'price', 'price_after_discount', 'image', 'sell_count'
+        fields = ('title', 'price', 'discounted_price','Info',
+                 'image_url', 'sell_count')
+
+    def get_image_url(self, product):
+        if product.image:
+            return '127.0.0.1:8000' + product.image.url
+        return None
+
