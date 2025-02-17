@@ -140,7 +140,7 @@ class ProductPublisher(models.Model):
 
 class ProductsInfo(models.Model):
     seller_name = models.CharField(max_length=100, default="کتابخانه", blank=True, null=True, verbose_name='فروشنده')
-    writer = models.CharField(max_length=100, default=None, verbose_name='نویسنده')
+    author = models.CharField(max_length=100, default=None, verbose_name='نویسنده')
     publisher = models.ForeignKey(ProductPublisher, on_delete=models.CASCADE, default=None, verbose_name='انتشارات')
     print = models.CharField(max_length=100, default=None, verbose_name='نوبت چاپ')
     translator = models.CharField(max_length=100, blank=True, null=True, verbose_name='مترجم')
@@ -166,15 +166,13 @@ class Products(models.Model):
                                 related_name='Product_Information', verbose_name='اطلاعات تکمیلی')
     category = models.ManyToManyField(Categories, blank=True, verbose_name='دسته بندی')
     quantity = models.PositiveIntegerField(default=0, verbose_name='تعداد')
-    slug = models.SlugField(max_length=100, unique=True, db_index=True, blank=True, null=True,
-                            verbose_name='عنوان در url')
+    slug = models.SlugField(max_length=100, unique=True, db_index=True, blank=True, null=True,verbose_name='عنوان در url')
     # rate = models.IntegerField(default=0, editable=False, verbose_name='امتیاز')
     sell_count = models.IntegerField(default=0, verbose_name='تعداد فروش')
     # test = models.CharField(null=True, blank=True)
     is_active = models.BooleanField(default=False, verbose_name='فعال / غیر فعال')
     last_update = models.DateTimeField(auto_now=True, verbose_name='آخرین تغییرات', null=True)  # problem:
     image = models.ImageField(upload_to='images/', blank=True, null=True, verbose_name='تصویر', default='default.png')
-    # image = models.CharField(max_length=200, blank=True, verbose_name='آدرس تصویر')
     is_deleted = models.BooleanField(default=False, verbose_name='حذف شده / نشده')
     tags = models.ManyToManyField(ProductTag, blank=True, verbose_name='تگ', default=None)
 
@@ -187,6 +185,7 @@ class Products(models.Model):
 
     def save(self, *args, **kwargs):
         valid_discounts = []
+
 
         for category in self.category.all():
             if hasattr(category, 'discount') and category.discount:
