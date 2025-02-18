@@ -9,10 +9,10 @@ from rest_framework.views import APIView
 from rest_framework import generics, mixins, viewsets, status, pagination, permissions
 from rest_framework.request import Request
 from rest_framework_simplejwt.authentication import JWTAuthentication
-from .models import Products
+from .models import Products, Slider
 from django.contrib.auth import authenticate, login, logout
 from rest_framework.authtoken.models import Token
-from .serializer import RegisterSerializer, ProductSerializer, MostSellProductSerializer
+from .serializer import RegisterSerializer, ProductSerializer, MostSellProductSerializer, SliderSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
 
 
@@ -73,3 +73,16 @@ class product_most_sells(APIView):
         mslist = Products.objects.all().order_by('-sell_count')[:10]
         product_most_sells_serilizer = MostSellProductSerializer(mslist, many=True)
         return Response(product_most_sells_serilizer.data, status=status.HTTP_200_OK)
+
+class Slides(APIView):
+    authentication_classes = []  # غیرفعال کردن JWT برای این ویو
+    permission_classes = [AllowAny]  # اجازه دسترسی به همه کاربران
+
+    def get(self, request: Request):
+        slide_images = Slider.objects.filter(is_active = True).order_by('order')[:5]
+        # paginator = CustomPagination()
+        # paginated_prlist = paginator.paginate_queryset(prlist, request)
+        slider_serializer = SliderSerializer(slide_images, many=True)
+        # return paginator.get_paginated_response(product_serializer.data)
+        return Response(slider_serializer.data, status=status.HTTP_200_OK)
+
