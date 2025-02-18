@@ -179,3 +179,12 @@ class DiscountAdmin(admin.ModelAdmin):
         if obj and obj.is_active:
             return False  # جلوگیری از حذف تخفیف‌های فعال
         return super().has_delete_permission(request, obj)
+
+
+@admin.register(models.Slider)
+class SlideAdmin(admin.ModelAdmin):
+    list_display = ('title', 'image_preview', 'is_active', 'order')
+    list_filter = ('is_active',)
+    list_editable = ('is_active', 'order',)
+    search_fields = ('title',)
+    ordering = ('title',)
