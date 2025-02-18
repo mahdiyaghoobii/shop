@@ -5,6 +5,7 @@ from django.db import models
 from django.db.models.fields import CharField
 from django.template.defaultfilters import title
 from django.utils import timezone
+from django.utils.html import format_html
 from django.utils.text import slugify
 from slugify import slugify as persian_slugify
 from datetime import datetime
@@ -67,7 +68,6 @@ class Info(models.Model):
 #     if not self.payment_info:
 #         self.payment_info = []
 #     super().save(*args, **kwargs)
-
 
 class Discount(models.Model):
     title = models.CharField(max_length=100, verbose_name='عنوان', db_index=True)
@@ -176,17 +176,25 @@ class Products(models.Model):
         return self.title
 
     def save(self, *args, **kwargs):
-        valid_discounts = []
-
-        for category in self.category.all().prefetch_related('discount'):
-            if category.discount and category.discount.is_valid():
-                valid_discounts.append(category.discount.percentage)
-
-        max_discount = max(valid_discounts) if valid_discounts else 0
-
-        if max_discount > 0:
-            self.discounted_price = self.price * (100 - max_discount) // 100
-        else:
-            self.discounted_price = None
-
         super().save(*args, **kwargs)
+
+class Slider(models.Model):
+    title = models.CharField(max_length=200, verbose_name='عنوان')
+    image = models.ImageField(upload_to='slides/', verbose_name='تصویر اسلاید')
+    description = models.TextField(verbose_name='توضیحات', blank=True)
+    is_active = models.BooleanField(default=True, verbose_name='فعال')
+    order = models.PositiveIntegerField(default=0, verbose_name='ترتیب نمایش')
+
+    class Meta:
+        verbose_name = 'اسلاید'
+        verbose_name_plural = 'اسلایدها'
+        ordering = ['order']
+
+    def __str__(self):
+        return self.title
+
+    def image_preview(self):
+        if self.image:
+            return format_html('<img src="{}" width="150" />', self.image.url)
+        return "بدون تصویر"
+    image_preview.short_description = 'پیش‌نمایش'
