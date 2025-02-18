@@ -42,28 +42,77 @@ This repository contains a web application built using HTML and Python (Django f
 
 ### Django Setup
 
-1. **Install Requirements**
+1. **Clone the repository**:
+    ```bash
+    git clone https://github.com/yourusername/eshop.git
+    cd eshop
+    ```
 
-   Navigate to the project directory and install the required packages:
+2. **Create a virtual environment**:
+    ```bash
+    python -m venv venv
+    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+    ```
 
-   ```sh
-   pip install -r requirements.txt
-   ```
+3. **Install dependencies**:
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-2. **Apply Migrations**
+4. **Set up the database**:
+    ```bash
+    python manage.py migrate
+    ```
 
-   Apply the database migrations:
+5. **Create a superuser**:
+    ```bash
+    python manage.py createsuperuser
+    ```
 
-   ```sh
-   python manage.py migrate
-   ```
+6. **Run the development server**:
+    ```bash
+    python manage.py runserver
+    ```
 
-3. **Run the Server**
 
-   Start the Django development server:
 
-   ```sh
-   python manage.py runserver
-   ```
+## Configuration
 
-   Your application should now be running at `http://127.0.0.1:8000/`.
+- **Database**: Configure your database settings in `shop/settings.py`.
+- **Static Files**: Ensure your static files are correctly set up in `shop/settings.py`.
+- **Media Files**: Configure media file settings in `shop/settings.py`.
+
+## API Endpoints
+
+- **User Authentication**:
+    - `POST /api/auth/login/`: User login
+    - `POST /api/auth/register/`: User registration
+    - `POST /api/auth/logout/`: User logout
+
+- **Product Management**:
+    - `GET /api/products/`: List all products
+    - `GET /api/products/<id>/`: Retrieve a specific product
+    - `POST /api/products/`: Create a new product
+    - `PUT /api/products/<id>/`: Update a product
+    - `DELETE /api/products/<id>/`: Delete a product
+
+- **Order Processing**:
+    - `GET /api/orders/`: List all orders
+    - `POST /api/orders/`: Create a new order
+
+## Contributing
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Make your changes.
+4. Commit your changes (`git commit -m 'Add new feature'`).
+5. Push to the branch (`git push origin feature-branch`).
+6. Open a pull request.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+For any inquiries or issues, please contact [yourname@example.com](mailto:yourname@example.com).
