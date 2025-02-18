@@ -65,6 +65,16 @@ class MostSellProductSerializer(serializers.ModelSerializer):
 
     def get_image_url(self, product):
         if product.image:
-            return '127.0.0.1:8000' + product.image.url
+            return 'https://127.0.0.1:8000' + product.image.url
         return None
 
+class SliderSerializer(serializers.ModelSerializer):
+    image_url = serializers.SerializerMethodField()
+    class Meta:
+        model = models.Slider
+        fields = ('title', 'description', 'is_active', 'order', 'image_url')
+
+    def get_image_url(self, slider):
+        if slider.image:
+            return 'https://127.0.0.1:8000' + slider.image.url
+        return None
