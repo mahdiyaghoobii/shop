@@ -1,6 +1,7 @@
 import django.utils.text
 from django.contrib.auth.base_user import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin
+from django.core.files.storage import default_storage
 from django.db import models
 from django.db.models.fields import CharField
 from django.template.defaultfilters import title
@@ -146,6 +147,17 @@ class ProductsInfo(models.Model):
         verbose_name = 'اطلاعات محصول'
         verbose_name_plural = 'اطلاعات محصولات'
 
+class Image(models.Model):
+    title = models.CharField(max_length=100, verbose_name='عنوان')
+    image_url = models.ImageField(upload_to='images/',default='images/default.png', verbose_name='تصویر')
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'تصویر'
+        verbose_name_plural = 'تصاویر'
+
 
 class Products(models.Model):
     title = models.CharField(max_length=100, verbose_name='عنوان', db_index=True)
@@ -164,7 +176,7 @@ class Products(models.Model):
     # test = models.CharField(null=True, blank=True)
     is_active = models.BooleanField(default=False, verbose_name='فعال / غیر فعال')
     last_update = models.DateTimeField(auto_now=True, verbose_name='آخرین تغییرات', null=True)  # problem:
-    image = models.ImageField(upload_to='images/', blank=True, null=True, verbose_name='تصویر', default='default.png')
+    image = models.ForeignKey(Image, on_delete=models.CASCADE, null=True, blank=True, verbose_name='تصویر')
     is_deleted = models.BooleanField(default=False, verbose_name='حذف شده / نشده')
     tags = models.ManyToManyField(ProductTag, blank=True, verbose_name='تگ', default=None)
 
@@ -180,7 +192,7 @@ class Products(models.Model):
 
 class Slider(models.Model):
     title = models.CharField(max_length=200, verbose_name='عنوان')
-    image = models.ImageField(upload_to='slides/', verbose_name='تصویر اسلاید')
+    image = models.ForeignKey(Image, on_delete=models.CASCADE, verbose_name='تصویر')
     description = models.TextField(verbose_name='توضیحات', blank=True)
     is_active = models.BooleanField(default=True, verbose_name='فعال')
     order = models.PositiveIntegerField(default=0, verbose_name='ترتیب نمایش')
@@ -195,6 +207,6 @@ class Slider(models.Model):
 
     def image_preview(self):
         if self.image:
-            return format_html('<img src="{}" width="150" />', self.image.url)
+            return format_html('<img src="{}" width="150" />', self.image.image_url.url)
         return "بدون تصویر"
     image_preview.short_description = 'پیش‌نمایش'
