@@ -1,14 +1,36 @@
 from django.contrib import admin
+from django import forms
 from django.utils.html import format_html
 from django.utils.safestring import mark_safe
-
 from home import models
+from django import forms
+from django.utils.safestring import mark_safe
 
-
+class ImageThumbnailWidget(forms.Select):
+    def render_option(self, selected_choices, option_value, option_label):
+        if option_value:
+            img = models.Image.objects.get(pk=option_value)
+            html = f'''
+            <option value="{option_value}" data-img-src="{img.image_url.url}">
+                {option_label} - <img src="{img.image_url.url}" style="height: 50px; margin-left: 10px;">
+            </option>
+            '''
+            return mark_safe(html)
+        return super().render_option(selected_choices, option_value, option_label)
 # Register your models here.
+
+class ProductForm(forms.ModelForm):
+    class Meta:
+        model = models.Products
+        fields = '__all__'
+        widgets = {
+            'image': forms.Select(attrs={'class': 'image-selector'})
+        }
 
 @admin.register(models.Products)
 class ProductAdmin(admin.ModelAdmin):
+    form = ProductForm
+
     filter_horizontal = ('tags',)
     list_display = ('title', 'price', 'quantity', 'get_categories', 'last_update', 'is_active', 'image_preview')
     list_filter = ('title', 'category', 'is_active')
@@ -29,7 +51,7 @@ class ProductAdmin(admin.ModelAdmin):
 
     def image_preview(self, obj):
         if obj.image:
-            return mark_safe(f'<img src="{obj.image.url}" width="50" height="50" />')
+            return mark_safe(f'<img src="{obj.image.image_url.url}" width="50" height="50" />')
         return "No Image"
 
     image_preview.short_description = 'تصویر'
@@ -188,3 +210,14 @@ class SlideAdmin(admin.ModelAdmin):
     list_editable = ('is_active', 'order',)
     search_fields = ('title',)
     ordering = ('title',)
+
+@admin.register(models.Image)
+class ImageAdmin(admin.ModelAdmin):
+    list_display = ('title', 'image_url', 'thumbnail')  # نمایش عنوان، تصویر و تصویر بندانگشتی
+    list_filter = ('title',)  # فیلتر بر اساس عنوان
+    search_fields = ('title',)  # جستجو بر اساس عنوان
+
+    def thumbnail(self, obj):
+        return format_html('<img src="{}" width="100" />', obj.image_url.url)
+    thumbnail.short_description = 'تصویر بندانگشتی'
+    thumbnail.allow_tags = True
