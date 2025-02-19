@@ -4,23 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d346ba8d-3471-4fb1-81d1-362c192cc44f" name="Changes" comment="update serializers to use 'image' field instead of 'image_url'">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6d4b9b11-9177-4fe3-988c-98ebefbdfba4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6d4b9b11-9177-4fe3-988c-98ebefbdfba4.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6d4b9b11-9177-4fe3-988c-98ebefbdfba4/storage_v2/_src_/database/eshopdb.mWIAqQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6d4b9b11-9177-4fe3-988c-98ebefbdfba4/storage_v2/_src_/database/eshopdb.mWIAqQ/schema/public.abK9xQ.meta" afterDir="false" />
+    <list default="true" id="d346ba8d-3471-4fb1-81d1-362c192cc44f" name="Changes" comment="feat: update workspace configuration and change list comments for improved clarity">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2_12_2025_2_47_AM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2_12_2025_2_47_AM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contact_module/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/contact_module/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/management/commands/populate_products.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/populate_products.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/migrations/0002_discount_remove_products_price_after_discount_and_more.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/migrations/0003_rename_writer_productsinfo_author.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/migrations/0004_slide.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/migrations/0005_rename_slide_slider.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/serializer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/signals.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/signals.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/images/animals-farm.jpg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,71 +173,8 @@
       <workItem from="1739700174879" duration="20762000" />
       <workItem from="1739784970661" duration="2444000" />
       <workItem from="1739787447884" duration="31952000" />
-      <workItem from="1739958603215" duration="2940000" />
-    </task>
-    <task id="LOCAL-00002" summary="add website-info table">
-      <option name="closed" value="true" />
-      <created>1734620959140</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1734620959140</updated>
-    </task>
-    <task id="LOCAL-00003" summary="add user-table">
-      <option name="closed" value="true" />
-      <created>1734620986909</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1734620986909</updated>
-    </task>
-    <task id="LOCAL-00004" summary="add user-table , userinfo and WebsiteInfo-table to models.py">
-      <option name="closed" value="true" />
-      <created>1734621223812</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1734621223812</updated>
-    </task>
-    <task id="LOCAL-00005" summary="models.py optimized&#10;admin.py completed">
-      <option name="closed" value="true" />
-      <created>1734622454908</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1734622454908</updated>
-    </task>
-    <task id="LOCAL-00006" summary="models.py optimized&#10;admin.py completed">
-      <option name="closed" value="true" />
-      <created>1738163717893</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1738163717893</updated>
-    </task>
-    <task id="LOCAL-00007" summary="models.py optimized&#10;admin.py completed">
-      <option name="closed" value="true" />
-      <created>1738164615531</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1738164615531</updated>
-    </task>
-    <task id="LOCAL-00008" summary="models.py optimized&#10;admin.py completed&#10;publisher set as a foreignkey model of Product Info in models.py">
-      <option name="closed" value="true" />
-      <created>1738164742946</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1738164742946</updated>
-    </task>
-    <task id="LOCAL-00009" summary="models.py optimized&#10;admin.py completed&#10;publisher set as a foreignkey model of Product Info in models.py">
-      <option name="closed" value="true" />
-      <created>1739313714751</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1739313714752</updated>
+      <workItem from="1739958603215" duration="4281000" />
+      <workItem from="1739989238667" duration="396000" />
     </task>
     <task id="LOCAL-00010" summary="models.py optimized&#10;admin.py completed&#10;publisher set as a foreignkey model of Product Info in models.py">
       <option name="closed" value="true" />
@@ -580,7 +504,71 @@
       <option name="project" value="LOCAL" />
       <updated>1739876898488</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="update serializers to use direct image field and remove unused methods">
+      <option name="closed" value="true" />
+      <created>1739961802602</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1739961802603</updated>
+    </task>
+    <task id="LOCAL-00052" summary="feat: add Discount, Image, and Slider models with relationships">
+      <option name="closed" value="true" />
+      <created>1739961939769</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1739961939769</updated>
+    </task>
+    <task id="LOCAL-00053" summary="enhance admin interface with image thumbnail widget and product form">
+      <option name="closed" value="true" />
+      <created>1739961953217</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1739961953217</updated>
+    </task>
+    <task id="LOCAL-00054" summary="add Image model and update Products and Slider to use ForeignKey for image references">
+      <option name="closed" value="true" />
+      <created>1739961960845</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1739961960845</updated>
+    </task>
+    <task id="LOCAL-00055" summary="...">
+      <option name="closed" value="true" />
+      <created>1739961980949</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1739961980949</updated>
+    </task>
+    <task id="LOCAL-00056" summary="add data population script for categories, tags, publishers, images, and products">
+      <option name="closed" value="true" />
+      <created>1739962002631</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1739962002631</updated>
+    </task>
+    <task id="LOCAL-00057" summary="fix: add pre_save signal to update discounted price for Products">
+      <option name="closed" value="true" />
+      <created>1739962008829</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1739962008829</updated>
+    </task>
+    <task id="LOCAL-00058" summary="feat: update workspace configuration and change list comments for improved clarity">
+      <option name="closed" value="true" />
+      <created>1739962017210</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1739962017210</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -604,14 +592,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="enable CORS for all origins" />
-    <MESSAGE value="add user signout functionality and update authentication permissions" />
-    <MESSAGE value="update dependencies" />
-    <MESSAGE value="add Discount" />
-    <MESSAGE value="add Discount model and update product pricing logic based on category discounts" />
-    <MESSAGE value="add Discount model and update product and category fields for discount management" />
-    <MESSAGE value="update workspace configuration and add tasks for dependency updates" />
-    <MESSAGE value="optimized" />
     <MESSAGE value="writer renamed to author" />
     <MESSAGE value="rename writer field to author in productsinfo model" />
     <MESSAGE value="rename writer field to author in ProductsInfo model" />
@@ -629,7 +609,15 @@
     <MESSAGE value="add slider endpoint to retrieve slider images" />
     <MESSAGE value="add Slide model and rename it to Slider" />
     <MESSAGE value="feat: update workspace configuration and task summaries" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: update workspace configuration and task summaries" />
+    <MESSAGE value="update serializers to use direct image field and remove unused methods" />
+    <MESSAGE value="feat: add Discount, Image, and Slider models with relationships" />
+    <MESSAGE value="enhance admin interface with image thumbnail widget and product form" />
+    <MESSAGE value="add Image model and update Products and Slider to use ForeignKey for image references" />
+    <MESSAGE value="..." />
+    <MESSAGE value="add data population script for categories, tags, publishers, images, and products" />
+    <MESSAGE value="fix: add pre_save signal to update discounted price for Products" />
+    <MESSAGE value="feat: update workspace configuration and change list comments for improved clarity" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: update workspace configuration and change list comments for improved clarity" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/shop$1.coverage" NAME="1 Coverage Results" MODIFIED="1738513293719" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Desktop" />
