@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d346ba8d-3471-4fb1-81d1-362c192cc44f" name="Changes" comment="feat: update workspace configuration and change list comments for improved clarity">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2_12_2025_2_47_AM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2_12_2025_2_47_AM__Changes_.xml" beforeDir="false" />
+    <list default="true" id="d346ba8d-3471-4fb1-81d1-362c192cc44f" name="Changes" comment="rename category query parameter to 'category_url' for clarity">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/serializer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/signals.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/signals.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,12 +41,7 @@
   <component name="GithubDefaultAccount">
     <option name="defaultAccountId" value="b89fa2d7-b7f9-4e76-98e2-12a168079e12" />
   </component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/boogey7/shop.git&quot;,
-    &quot;accountId&quot;: &quot;b89fa2d7-b7f9-4e76-98e2-12a168079e12&quot;
-  }
-}</component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -129,8 +128,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-PY-243.23654.177" />
-        <option value="bundled-python-sdk-91d3a02ef49d-43b77aa2d136-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.23654.177" />
+        <option value="bundled-js-predefined-d6986cc7102b-76f8388c3a79-JavaScript-PY-243.24978.54" />
+        <option value="bundled-python-sdk-91e3b7efe1d4-466328ff949b-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.24978.54" />
       </set>
     </attachedChunks>
   </component>
@@ -175,30 +174,7 @@
       <workItem from="1739787447884" duration="31952000" />
       <workItem from="1739958603215" duration="4281000" />
       <workItem from="1739989238667" duration="396000" />
-    </task>
-    <task id="LOCAL-00010" summary="models.py optimized&#10;admin.py completed&#10;publisher set as a foreignkey model of Product Info in models.py">
-      <option name="closed" value="true" />
-      <created>1739314538466</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1739314538466</updated>
-    </task>
-    <task id="LOCAL-00011" summary="{&#10;    &quot;error&quot;: {&#10;        &quot;message&quot;: &quot;Incorrect API key provided: sk-proj-********************************************************************************************************************************************************MowA. You can find your API key at https://platform.openai.com/account/api-keys.&quot;,&#10;        &quot;type&quot;: &quot;invalid_request_error&quot;,&#10;        &quot;param&quot;: null,&#10;        &quot;code&quot;: &quot;invalid_api_key&quot;&#10;    }&#10;}">
-      <option name="closed" value="true" />
-      <created>1739356058167</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1739356058167</updated>
-    </task>
-    <task id="LOCAL-00012" summary="add GitToolBox project and blame settings">
-      <option name="closed" value="true" />
-      <created>1739356379197</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1739356379197</updated>
+      <workItem from="1739989707372" duration="8978000" />
     </task>
     <task id="LOCAL-00013" summary="add GitToolBox project and blame settings">
       <option name="closed" value="true" />
@@ -568,7 +544,31 @@
       <option name="project" value="LOCAL" />
       <updated>1739962017210</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="add ImageSerializer and integrate it into Product and Slider serializers">
+      <option name="closed" value="true" />
+      <created>1739990062742</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1739990062742</updated>
+    </task>
+    <task id="LOCAL-00060" summary="update workspace configuration and improve change list comments for clarity">
+      <option name="closed" value="true" />
+      <created>1739990095220</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1739990095220</updated>
+    </task>
+    <task id="LOCAL-00061" summary="rename category query parameter to 'category_url' for clarity">
+      <option name="closed" value="true" />
+      <created>1739991157932</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1739991157932</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -592,9 +592,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="writer renamed to author" />
-    <MESSAGE value="rename writer field to author in productsinfo model" />
-    <MESSAGE value="rename writer field to author in ProductsInfo model" />
     <MESSAGE value="add image_url field and update fields in MostSellProductSerializer" />
     <MESSAGE value="optimize workspace configuration and update task summaries" />
     <MESSAGE value="add signals import in HomeConfig ready method" />
@@ -617,7 +614,10 @@
     <MESSAGE value="add data population script for categories, tags, publishers, images, and products" />
     <MESSAGE value="fix: add pre_save signal to update discounted price for Products" />
     <MESSAGE value="feat: update workspace configuration and change list comments for improved clarity" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: update workspace configuration and change list comments for improved clarity" />
+    <MESSAGE value="add ImageSerializer and integrate it into Product and Slider serializers" />
+    <MESSAGE value="update workspace configuration and improve change list comments for clarity" />
+    <MESSAGE value="rename category query parameter to 'category_url' for clarity" />
+    <option name="LAST_COMMIT_MESSAGE" value="rename category query parameter to 'category_url' for clarity" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/shop$1.coverage" NAME="1 Coverage Results" MODIFIED="1738513293719" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Desktop" />
