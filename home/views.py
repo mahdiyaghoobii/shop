@@ -86,3 +86,14 @@ class Slides(APIView):
         # return paginator.get_paginated_response(product_serializer.data)
         return Response(slider_serializer.data, status=status.HTTP_200_OK)
 
+class product_detail(APIView):
+    authentication_classes = []  # غیرفعال کردن JWT برای این ویو
+    permission_classes = [AllowAny]  # اجازه دسترسی به همه کاربران
+
+    def get(self, request: Request, slug):
+        try:
+            product = Products.objects.get(slug=slug)
+            product_serializer = ProductSerializer(product)
+            return Response(product_serializer.data, status=status.HTTP_200_OK)
+        except Products.DoesNotExist:
+            return Response({"error": "Product not found."}, status=status.HTTP_404_NOT_FOUND)
