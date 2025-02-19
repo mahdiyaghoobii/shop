@@ -41,7 +41,7 @@ class ProductFilter(APIView):
     def get(self, request: Request):
         # Get query parameters for 'tag' and 'category'
         tag_title = request.query_params.get('tag', None)
-        category_title = request.query_params.get('category', None)
+        category_url = request.query_params.get('category', None)
         price_min = int(request.query_params.get('min', default=0))
         price_max = int(request.query_params.get('max', default=9999999999999999999999))
         # Start with all products
@@ -51,10 +51,10 @@ class ProductFilter(APIView):
             prlist = prlist.filter(tags__title=tag_title)
             if not prlist.exists():
                 return Response({"error": f"No products found for tag: {tag_title}."}, status=status.HTTP_404_NOT_FOUND)
-        if category_title is not None:  # category filter
-            prlist = prlist.filter(category__name=category_title)
+        if category_url is not None:  # category filter
+            prlist = prlist.filter(category__url_title=category_url)
             if not prlist.exists():
-                return Response({"error": f"No products found for category: {category_title}."},
+                return Response({"error": f"No products found for category: {category_url}."},
                                 status=status.HTTP_404_NOT_FOUND)
         if price_min is not None and price_max is not None:  # price limits
             prlist = prlist.filter(price__gte=price_min, price__lte=price_max)
