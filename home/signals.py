@@ -1,10 +1,11 @@
+import os
+
 from apscheduler.schedulers.background import BackgroundScheduler
-from django.db.models.signals import post_save, pre_delete, m2m_changed
+from django.db.models.signals import post_save, pre_delete, m2m_changed, pre_save
 from django.dispatch import receiver
 from django.utils import timezone
 from .models import Discount, Categories, Products
 from django.db.models import F
-
 
 # ایجاد یک scheduler
 scheduler = BackgroundScheduler()
@@ -83,3 +84,5 @@ def update_discounted_price(instance): # Helper function
         Products.objects.filter(pk=instance.pk).update(discounted_price=F('price') * (100 - max_discount) // 100)
     else:
         Products.objects.filter(pk=instance.pk).update(discounted_price=None)
+
+
