@@ -10,6 +10,12 @@ from django.contrib.auth.password_validation import validate_password
 from .admin import ProductsInfoAdmin
 
 
+class ImageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Image
+        fields = '__all__'
+
+
 class RegisterSerializer(serializers.ModelSerializer):
     password = serializers.CharField(
         write_only=True, required=True, validators=[validate_password])
@@ -48,14 +54,16 @@ class ProductSerializer(serializers.ModelSerializer):
     Info = ProductsInfoSerializer()
     category = ProductCategorySerializer()
     tags = ProductTagSerializer(many=True)
+    image = ImageSerializer()
 
     class Meta:
         model = models.Products
-        fields = '__all__'
+        fields = 'title', 'price', 'discounted_price', 'category', 'tags', 'Info', 'image', 'quantity', 'slug', 'sell_count', 'is_active', 'last_update', 'is_deleted'
 
 
 class MostSellProductSerializer(serializers.ModelSerializer):
     Info = ProductsInfoSerializer()
+    image = ImageSerializer()
     class Meta:
         model = models.Products
         fields = ('title', 'price', 'discounted_price','Info',
@@ -67,14 +75,12 @@ class MostSellProductSerializer(serializers.ModelSerializer):
     #     return None
 
 class SliderSerializer(serializers.ModelSerializer):
+    image = ImageSerializer()
     class Meta:
         model = models.Slider
         fields = ('title', 'description', 'is_active', 'order', 'image')
 
-class ImageSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = models.Image
-        fields = '__all__'
+
 
     # def get_image_url(self, slider):
     #     if slider.image:
