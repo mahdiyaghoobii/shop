@@ -9,7 +9,7 @@ urlpatterns = [
     path('most-sells-products/', views.product_most_sells.as_view(), name='most-sells-products'),
     path('filter/', views.ProductFilter.as_view(), name='my_view'),
     path('slider/', views.Slides.as_view(), name='slider'),
-    # path('<slug:slug>/', views.SliderDetail.as_view(), name='slider-detail'),
+    path('<slug:slug>/', views.Product_detail.as_view(), name='product_detail'),
 
     # path('signin/', views.signin_user, name='signin'),
     # path('signup/', views.signup_user, name='signup'),
