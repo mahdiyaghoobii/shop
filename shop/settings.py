@@ -48,7 +48,6 @@ INSTALLED_APPS = [
     'contact_module.apps.ContactModuleConfig',
     'corsheaders',
     'account.apps.AccountConfig',
-
 ]
 
 MIDDLEWARE = [
