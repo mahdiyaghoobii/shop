@@ -58,7 +58,9 @@ class ProductSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.Products
-        fields = ('title', 'price', 'discounted_price', 'Info', 'category', 'quantity', 'slug', 'sell_count', 'is_active', 'image', 'tags', 'last_update')
+        fields = (
+        'title', 'price', 'discounted_price', 'Info', 'category', 'quantity', 'slug', 'sell_count', 'is_active',
+        'image', 'tags', 'last_update')
 
 
 class MostSellProductSerializer(serializers.ModelSerializer):
