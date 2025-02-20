@@ -74,19 +74,21 @@ class product_most_sells(APIView):
         product_most_sells_serilizer = MostSellProductSerializer(mslist, many=True)
         return Response(product_most_sells_serilizer.data, status=status.HTTP_200_OK)
 
+
 class Slides(APIView):
     authentication_classes = []  # غیرفعال کردن JWT برای این ویو
     permission_classes = [AllowAny]  # اجازه دسترسی به همه کاربران
 
     def get(self, request: Request):
-        slide_images = Slider.objects.filter(is_active = True).order_by('order')[:5]
+        slide_images = Slider.objects.filter(is_active=True).order_by('order')[:5]
         # paginator = CustomPagination()
         # paginated_prlist = paginator.paginate_queryset(prlist, request)
         slider_serializer = SliderSerializer(slide_images, many=True)
         # return paginator.get_paginated_response(product_serializer.data)
         return Response(slider_serializer.data, status=status.HTTP_200_OK)
 
-class product_detail(APIView):
+
+class Product_detail(APIView):
     authentication_classes = []  # غیرفعال کردن JWT برای این ویو
     permission_classes = [AllowAny]  # اجازه دسترسی به همه کاربران
 
