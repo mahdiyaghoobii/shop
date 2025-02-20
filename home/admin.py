@@ -6,6 +6,7 @@ from home import models
 from django import forms
 from django.utils.safestring import mark_safe
 
+
 class ImageThumbnailWidget(forms.Select):
     def render_option(self, selected_choices, option_value, option_label):
         if option_value:
@@ -17,6 +18,8 @@ class ImageThumbnailWidget(forms.Select):
             '''
             return mark_safe(html)
         return super().render_option(selected_choices, option_value, option_label)
+
+
 # Register your models here.
 
 class ProductForm(forms.ModelForm):
@@ -26,6 +29,7 @@ class ProductForm(forms.ModelForm):
         widgets = {
             'image': forms.Select(attrs={'class': 'image-selector'})
         }
+
 
 @admin.register(models.Products)
 class ProductAdmin(admin.ModelAdmin):
@@ -211,6 +215,7 @@ class SlideAdmin(admin.ModelAdmin):
     search_fields = ('title',)
     ordering = ('title',)
 
+
 @admin.register(models.Image)
 class ImageAdmin(admin.ModelAdmin):
     list_display = ('title', 'image_url', 'thumbnail')  # نمایش عنوان، تصویر و تصویر بندانگشتی
@@ -219,5 +224,6 @@ class ImageAdmin(admin.ModelAdmin):
 
     def thumbnail(self, obj):
         return format_html('<img src="{}" width="100" />', obj.image_url.url)
+
     thumbnail.short_description = 'تصویر بندانگشتی'
     thumbnail.allow_tags = True
