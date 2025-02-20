@@ -147,9 +147,10 @@ class ProductsInfo(models.Model):
         verbose_name = 'اطلاعات محصول'
         verbose_name_plural = 'اطلاعات محصولات'
 
+
 class Image(models.Model):
     title = models.CharField(max_length=100, verbose_name='عنوان')
-    image_url = models.ImageField(upload_to='images/',default='images/default.png', verbose_name='تصویر')
+    image_url = models.ImageField(upload_to='images/', default='images/default.png', verbose_name='تصویر')
 
     def __str__(self):
         return self.title
@@ -190,6 +191,7 @@ class Products(models.Model):
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
 
+
 class Slider(models.Model):
     title = models.CharField(max_length=200, verbose_name='عنوان')
     image = models.ForeignKey(Image, on_delete=models.CASCADE, verbose_name='تصویر')
@@ -209,4 +211,5 @@ class Slider(models.Model):
         if self.image:
             return format_html('<img src="{}" width="150" />', self.image.image_url.url)
         return "بدون تصویر"
+
     image_preview.short_description = 'پیش‌نمایش'
