@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d346ba8d-3471-4fb1-81d1-362c192cc44f" name="Changes" comment="rename category query parameter to 'category_url' for clarity">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+    <list default="true" id="d346ba8d-3471-4fb1-81d1-362c192cc44f" name="Changes" comment="refactor: update workspace configuration and rename category query parameter for clarity">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/serializer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/signals.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/signals.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/shop/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +41,7 @@
   <component name="GithubDefaultAccount">
     <option name="defaultAccountId" value="b89fa2d7-b7f9-4e76-98e2-12a168079e12" />
   </component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{}]]></component>
+  <component name="GithubPullRequestsUISettings">{}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -174,55 +174,9 @@
       <workItem from="1739787447884" duration="31952000" />
       <workItem from="1739958603215" duration="4281000" />
       <workItem from="1739989238667" duration="396000" />
-      <workItem from="1739989707372" duration="8978000" />
-    </task>
-    <task id="LOCAL-00013" summary="add GitToolBox project and blame settings">
-      <option name="closed" value="true" />
-      <created>1739359613344</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1739359613344</updated>
-    </task>
-    <task id="LOCAL-00014" summary="add GitToolBox project and blame settings">
-      <option name="closed" value="true" />
-      <created>1739479593557</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1739479593557</updated>
-    </task>
-    <task id="LOCAL-00015" summary="- Create a new app for user authentication&#10;- Implement user login (by JWT) functionality&#10;- Optimize existing code for better performance">
-      <option name="closed" value="true" />
-      <created>1739480031208</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1739480031208</updated>
-    </task>
-    <task id="LOCAL-00016" summary="models.py optimized&#10;admin.py completed&#10;publisher set as a foreignkey model of Product Info in models.py">
-      <option name="closed" value="true" />
-      <created>1739480194435</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1739480194435</updated>
-    </task>
-    <task id="LOCAL-00017" summary="update requirements and workspace configuration for new user authentication app">
-      <option name="closed" value="true" />
-      <created>1739480292666</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1739480292666</updated>
-    </task>
-    <task id="LOCAL-00018" summary="add MostSellProductSerializer and update product_most_sells view">
-      <option name="closed" value="true" />
-      <created>1739627585436</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1739627585436</updated>
+      <workItem from="1739989707372" duration="9518000" />
+      <workItem from="1740080744389" duration="4009000" />
+      <workItem from="1740085440018" duration="156000" />
     </task>
     <task id="LOCAL-00019" summary="create random products">
       <option name="closed" value="true" />
@@ -568,7 +522,55 @@
       <option name="project" value="LOCAL" />
       <updated>1739991157932</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="refactor: remove unnecessary import in app ready method">
+      <option name="closed" value="true" />
+      <created>1740005075767</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1740005075767</updated>
+    </task>
+    <task id="LOCAL-00063" summary="refactor: update ProductSerializer to allow multiple categories and adjust fields for clarity">
+      <option name="closed" value="true" />
+      <created>1740005082043</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1740005082043</updated>
+    </task>
+    <task id="LOCAL-00064" summary="refactor: update ProductSerializer to allow multiple categories and adjust fields for clarity">
+      <option name="closed" value="true" />
+      <created>1740005085280</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1740005085280</updated>
+    </task>
+    <task id="LOCAL-00065" summary="refactor: comment out unused slider detail route for future reference">
+      <option name="closed" value="true" />
+      <created>1740005093912</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1740005093912</updated>
+    </task>
+    <task id="LOCAL-00066" summary="feat: add product_detail view to retrieve product by slug with public access">
+      <option name="closed" value="true" />
+      <created>1740005098879</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1740005098879</updated>
+    </task>
+    <task id="LOCAL-00067" summary="refactor: update workspace configuration and rename category query parameter for clarity">
+      <option name="closed" value="true" />
+      <created>1740005105124</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1740005105124</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -592,11 +594,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add image_url field and update fields in MostSellProductSerializer" />
-    <MESSAGE value="optimize workspace configuration and update task summaries" />
-    <MESSAGE value="add signals import in HomeConfig ready method" />
-    <MESSAGE value="refactor: remove unused signal receivers and update field references" />
-    <MESSAGE value="feat: add signal handlers for Discount and Categories models to update related Products" />
     <MESSAGE value="add SlideAdmin for Sliders" />
     <MESSAGE value="add APScheduler" />
     <MESSAGE value="add SliderSerializer" />
@@ -617,7 +614,12 @@
     <MESSAGE value="add ImageSerializer and integrate it into Product and Slider serializers" />
     <MESSAGE value="update workspace configuration and improve change list comments for clarity" />
     <MESSAGE value="rename category query parameter to 'category_url' for clarity" />
-    <option name="LAST_COMMIT_MESSAGE" value="rename category query parameter to 'category_url' for clarity" />
+    <MESSAGE value="refactor: remove unnecessary import in app ready method" />
+    <MESSAGE value="refactor: update ProductSerializer to allow multiple categories and adjust fields for clarity" />
+    <MESSAGE value="refactor: comment out unused slider detail route for future reference" />
+    <MESSAGE value="feat: add product_detail view to retrieve product by slug with public access" />
+    <MESSAGE value="refactor: update workspace configuration and rename category query parameter for clarity" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: update workspace configuration and rename category query parameter for clarity" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/shop$1.coverage" NAME="1 Coverage Results" MODIFIED="1738513293719" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Desktop" />
