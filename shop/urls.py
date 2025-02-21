@@ -27,7 +27,7 @@ from home import views
 
 urlpatterns = [
     path('signup/', account.views.RegisterView.as_view(), name='signup'),
-    path('signin/', account.views.CustomTokenObtainPairView.as_view(), name='signin'),
+    path('signin/', account.views.SigninUser.as_view(), name='signin'),
     path('signout/', account.views.SignoutUser.as_view(), name='signout'),
     # path('signup/', home.views.signup_user, name='signup'),
     path('product/', include('home.urls'), name='product'),
@@ -38,6 +38,6 @@ urlpatterns = [
     # path('best_product/', views.BestProductSlider.as_view(), name='best_product'),
     path('', include('main.urls')),
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('api/token/refresh/', account.views.RefreshTokenView.as_view(), name='token_refresh'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
