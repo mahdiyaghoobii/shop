@@ -32,10 +32,18 @@ class RegisterSerializer(serializers.ModelSerializer):
         return user
 
 
+class ProductInfoPublisherSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.ProductPublisher
+        fields = ('title', 'ia_active')
+
+
 class ProductsInfoSerializer(serializers.ModelSerializer):
+    publisher = ProductInfoPublisherSerializer()
+
     class Meta:
         model = models.ProductsInfo
-        fields = '__all__'
+        fields = ('seller_name', 'author', 'publisher', 'print', 'translator', 'pages', 'language')
 
 
 class ProductCategorySerializer(serializers.ModelSerializer):
@@ -59,8 +67,8 @@ class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Products
         fields = (
-        'title', 'price', 'discounted_price', 'Info', 'category', 'quantity', 'slug', 'sell_count', 'is_active',
-        'image', 'tags', 'last_update')
+            'title', 'price', 'discounted_price', 'Info', 'category', 'quantity', 'slug', 'sell_count', 'is_active',
+            'image', 'tags', 'last_update')
 
 
 class MostSellProductSerializer(serializers.ModelSerializer):
