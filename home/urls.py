@@ -11,6 +11,4 @@ urlpatterns = [
     path('slider/', views.Slides.as_view(), name='slider'),
     path('<slug:slug>/', views.Product_detail.as_view(), name='product_detail'),
 
-    # path('signin/', views.signin_user, name='signin'),
-    # path('signup/', views.signup_user, name='signup'),
 ]
