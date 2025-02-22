@@ -1,5 +1,6 @@
 from django.core.serializers import serialize
 from django.http import JsonResponse
+from rest_framework.generics import ListAPIView
 from django.shortcuts import render
 from django.views import View, generic
 from rest_framework.decorators import api_view, permission_classes
@@ -16,10 +17,10 @@ from .serializer import RegisterSerializer, ProductSerializer, MostSellProductSe
 from rest_framework_simplejwt.views import TokenObtainPairView
 
 
-# class CustomPagination(pagination.PageNumberPagination):
-#     page_size = 1  # Number of items per page
-#     page_size_query_param = 'page_size'
-#     max_page_size = 100
+class CustomPagination(pagination.PageNumberPagination):
+    page_size = 1  # Number of items per page
+    page_size_query_param = 'page_size'
+    max_page_size = 100
 
 class productlist(APIView):
     authentication_classes = []  # غیرفعال کردن JWT برای این ویو
@@ -81,6 +82,7 @@ class Slides(APIView):
 
     def get(self, request: Request):
         slide_images = Slider.objects.filter(is_active=True).order_by('order')[:5]
+
         # paginator = CustomPagination()
         # paginated_prlist = paginator.paginate_queryset(prlist, request)
         slider_serializer = SliderSerializer(slide_images, many=True)
