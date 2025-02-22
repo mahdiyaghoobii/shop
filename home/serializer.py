@@ -78,8 +78,7 @@ class MostSellProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Products
         fields = ('title', 'price', 'discounted_price', 'Info',
-                  'image', 'sell_count')
-
+                  'image', 'sell_count','slug')
     # def get_image_url(self, product):
     #     if product.image:
     #         return 'https://127.0.0.1:8000' + product.image.url
