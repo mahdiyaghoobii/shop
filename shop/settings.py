@@ -13,6 +13,7 @@ import os
 from dotenv import load_dotenv
 from datetime import timedelta
 from pathlib import Path
+
 load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,10 +22,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY ='django-insecure-p%t)&gis%iiow347va@dl@g4kwq%qf+v9f1zotc1sw*e!6lfr1'
+SECRET_KEY = 'django-insecure-p%t)&gis%iiow347va@dl@g4kwq%qf+v9f1zotc1sw*e!6lfr1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG =True
+DEBUG = True
 
 ALLOWED_HOSTS = [
     'localhost',
@@ -155,3 +156,5 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+SESSION_COOKIE_AGE = 60 * 60 * 24 * 7  # 1 week
