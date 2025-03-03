@@ -1,13 +1,12 @@
-# import os
-#
-# from apscheduler.schedulers.background import BackgroundScheduler
-# from django.db.models.signals import post_save, pre_delete, m2m_changed, pre_save
-# from django.dispatch import receiver
-# from django.utils import timezone
-# from .models import Discount, Categories, Products
-# from django.db.models import F
-#
-# # ایجاد یک scheduler
+import os
+from apscheduler.schedulers.background import BackgroundScheduler
+from django.db.models.signals import post_save, pre_delete, m2m_changed, pre_save
+from django.dispatch import receiver
+from django.utils import timezone
+from .models import Discount, Categories, Products
+from django.db.models import F
+
+# ایجاد یک scheduler
 # scheduler = BackgroundScheduler()
 #
 #
@@ -41,48 +40,54 @@
 #             discount.save()
 #     except Discount.DoesNotExist:
 #         pass
-#
-#
-# @receiver(post_save, sender=Discount)
-# def update_products_on_discount_change(sender, instance, **kwargs):
-#     related_categories = Categories.objects.filter(discount=instance)
-#     for category in related_categories:
-#         for product in Products.objects.filter(category=category):
-#             product.save()
-#
-#
-# @receiver(post_save, sender=Categories)
-# def update_product_prices(sender, instance, **kwargs):
-#     for product in Products.objects.filter(category=instance):
-#         product.save()
-#
-#
-# @receiver(pre_delete, sender=Discount)
-# def handle_discount_deletion(sender, instance, **kwargs):
-#     Categories.objects.filter(discount=instance).update(discount=None)
-#
-#
-# @receiver(post_save, sender=Products)
-# def update_product_discounted_price(sender, instance, created, **kwargs):
-#     if created: # Only run this if the product is newly created
-#         update_discounted_price(instance) # Call the helper function
-#
-# @receiver(m2m_changed, sender=Products.category.through)
-# def update_products_on_category_change(sender, instance, action, **kwargs):
-#     if action in ("post_add", "post_remove", "post_clear"):
-#         update_discounted_price(instance) # Call the helper function
-#
-# def update_discounted_price(instance): # Helper function
-#     valid_discounts = []
-#     for category in instance.category.all().prefetch_related('discount'):
-#         if category.discount and category.discount.is_valid():  # Assuming is_valid() is defined
-#             valid_discounts.append(category.discount.percentage)
-#
-#     max_discount = max(valid_discounts) if valid_discounts else 0
-#
-#     if max_discount > 0:
-#         Products.objects.filter(pk=instance.pk).update(discounted_price=F('price') * (100 - max_discount) // 100)
-#     else:
-#         Products.objects.filter(pk=instance.pk).update(discounted_price=None)
-#
-#
+
+@receiver(post_save, sender=Discount)
+def update_products_on_discount_change(sender, instance, **kwargs):
+    related_categories = Categories.objects.filter(discount=instance)
+    for category in related_categories:
+        for product in Products.objects.filter(category=category):
+            product.save()
+
+
+@receiver(post_save, sender=Categories)
+def update_product_prices(sender, instance, **kwargs):
+    for product in Products.objects.filter(category=instance):
+        print(product.price)
+        product.save()
+
+#hale
+@receiver(pre_delete, sender=Discount)
+def handle_discount_deletion(sender, instance, **kwargs):
+    Categories.objects.filter(discount=instance).update(discount=None)
+
+# firdst update_discounted_price
+@receiver(post_save, sender=Products)
+def update_product_discounted_price(sender, instance, created, **kwargs):
+    print("product post save")
+    update_discounted_price(instance) # Call the helper function
+
+@receiver(m2m_changed, sender=Products.category.through)
+def update_products_on_category_change(sender, instance, action, **kwargs):
+    if action in ("post_add", "post_remove", "post_clear"):
+        update_discounted_price(instance) # Call the helper function
+
+def update_discounted_price(instance): # Helper function
+    valid_discounts = []
+    for category in instance.category.all().prefetch_related('discount'):
+        if category.discount and category.discount.is_active:  # Assuming is_valid() is defined
+            if Discount.objects.get(title=category.discount).is_active:
+                valid_discounts.append(category.discount.percentage)
+            else:
+                valid_discounts.append(0)
+        elif not category.discount:
+            valid_discounts.append(0)
+
+    max_discount = max(valid_discounts) if valid_discounts else 0
+
+    if max_discount > 0 :
+        discounted_price = int(instance.price * (100 - max_discount) // 100)
+        Products.objects.filter(pk=instance.pk).update(discounted_price=discounted_price)
+    else:
+        Products.objects.filter(pk=instance.pk).update(discounted_price=None)
+
+
