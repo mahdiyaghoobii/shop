@@ -1,30 +1,14 @@
-from Scripts.bottle import response
-from django.core.serializers import serialize
-from django.http import JsonResponse
-from django.shortcuts import render
-from django.views import View, generic
-from rest_framework.decorators import api_view, permission_classes
-from rest_framework.permissions import AllowAny
-from rest_framework.response import Response
-from rest_framework.views import APIView
-from rest_framework import generics, mixins, viewsets, status, pagination, permissions
-from rest_framework.request import Request
-from rest_framework_simplejwt.authentication import JWTAuthentication
-from home.models import Products
-from django.contrib.auth import authenticate, login, logout
-from rest_framework.authtoken.models import Token
-from home.serializer import RegisterSerializer, ProductSerializer
+from home.serializer import RegisterSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
-from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.exceptions import TokenError
-from rest_framework_simplejwt.tokens import RefreshToken
-
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
 from django.contrib.auth import authenticate, login, logout
 from rest_framework.permissions import AllowAny
 from rest_framework import status
+from rest_framework_simplejwt.tokens import AccessToken
+from django.core.cache import cache
 
 
 class SigninUser(APIView):
@@ -63,7 +47,8 @@ class SigninUser(APIView):
 
             # بازگردانی پاسخ
             return response
-
+        # request.session['user_id'] = request.user.id
+        # cache.set('my_key',str(RefreshToken.for_user(user)), timeout=1200)
         # ارسال پاسخ خطا در صورت احراز هویت ناموفق
         return Response({"error": "Invalid credentials."}, status=status.HTTP_401_UNAUTHORIZED)
 
