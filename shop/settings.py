@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'contact_module.apps.ContactModuleConfig',
     'corsheaders',
     'account.apps.AccountConfig',
+    'oauth2_provider',
 ]
 
 MIDDLEWARE = [
@@ -97,6 +98,7 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '5432',
     }}
+
 AUTH_USER_MODEL = 'account.User'
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -158,3 +160,21 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 SESSION_COOKIE_AGE = 60 * 60 * 24 * 7  # 1 week
+
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/1",  # آدرس Redis و دیتابیس شماره 1
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    }
+}
+
+# OAUTH2_PROVIDER = {
+#     'ACCESS_TOKEN_GENERATOR': 'path.to.your.jwt_generator_function',
+#     'SCOPES': {'read': 'Read scope', 'write': 'Write scope'},  # تعریف مقاطع دسترسی
+#     'ACCESS_TOKEN_EXPIRE_SECONDS': 3600 ,  # زمان انقضا توکن دسترسی (ثانیه)
+#     'ROTATE_REFRESH_TOKENS': True,  # تازه‌سازی توکن‌ها
+#     'AUTHORIZATION_CODE_EXPIRE_SECONDS': 60,  # زمان انقضا کد احراز هویت
+# }
