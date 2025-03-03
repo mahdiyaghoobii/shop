@@ -37,6 +37,7 @@ urlpatterns = [
     # path('api/', include('api.urls')),
     # path('best_product/', views.BestProductSlider.as_view(), name='best_product'),
     path('', include('main.urls')),
+    # path('o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', account.views.RefreshTokenView.as_view(), name='token_refresh'),
 
