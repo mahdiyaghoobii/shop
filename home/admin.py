@@ -5,6 +5,9 @@ from django.utils.safestring import mark_safe
 from home import models
 from django import forms
 from django.utils.safestring import mark_safe
+from django.contrib import admin
+from django.utils.html import format_html
+from .models import Discount
 
 
 class ImageThumbnailWidget(forms.Select):
@@ -119,11 +122,6 @@ class CategoriesAdmin(admin.ModelAdmin):
 #     search_fields = ('user__username', 'address', 'postal_code')
 #     list_filter = ('postal_code', 'home_phone')
 #     ordering = ('user__username',)
-
-
-from django.contrib import admin
-from django.utils.html import format_html
-from .models import Discount
 
 
 @admin.register(Discount)
