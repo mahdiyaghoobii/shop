@@ -1,21 +1,11 @@
 from django.core.exceptions import ObjectDoesNotExist
-from django.core.serializers import serialize
-from django.http import JsonResponse
-from rest_framework.generics import ListAPIView
-from django.shortcuts import render
-from django.views import View, generic
-from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import generics, mixins, viewsets, status, pagination, permissions
 from rest_framework.request import Request
-from rest_framework_simplejwt.authentication import JWTAuthentication
 from .models import Products, Slider
-from django.contrib.auth import authenticate, login, logout
-from rest_framework.authtoken.models import Token
 from .serializer import RegisterSerializer, ProductSerializer, MostSellProductSerializer, SliderSerializer
-from rest_framework_simplejwt.views import TokenObtainPairView
 
 
 class CustomPagination(pagination.PageNumberPagination):
@@ -151,6 +141,7 @@ class add_basket(APIView):
         return Response({"message": f"Product added to basket. {request.session['basket']}", "cost": f"{str(cost)}",
                          "basket_items": f"{str(basket_items)}"}, status=status.HTTP_200_OK)
 
+
 class clear_basket(APIView):
     authentication_classes = []
     permission_classes = [AllowAny]
@@ -161,4 +152,5 @@ class clear_basket(APIView):
             request.session.modified = True  # اعلام تغییر session به Django
             return Response({"message": "Basket cleared."}, status=status.HTTP_200_OK)
         else:
-            return Response({"message": "Basket is already empty."}, status=status.HTTP_200_OK) #optional: you can also return 404
+            return Response({"message": "Basket is already empty."},
+                            status=status.HTTP_200_OK)  # optional: you can also return 404
