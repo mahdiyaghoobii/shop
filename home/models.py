@@ -189,6 +189,13 @@ class Products(models.Model):
         return self.title
 
     def save(self, *args, **kwargs):
+        def fa_slugify():
+            tittle = self.title
+            splited_tittle = tittle.split(' ')
+            slugged = splited_tittle[0]
+            for word in splited_tittle[1::]:
+                slugged += '-' + word
+            self.slug = slugged
         super().save(*args, **kwargs)
 
 
