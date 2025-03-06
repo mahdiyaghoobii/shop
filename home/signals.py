@@ -1,4 +1,6 @@
 import os
+
+from slugify import slugify
 from apscheduler.schedulers.background import BackgroundScheduler
 from django.db.models.signals import post_save, pre_delete, m2m_changed, pre_save
 from django.dispatch import receiver
@@ -91,3 +93,19 @@ def update_discounted_price(instance): # Helper function
         Products.objects.filter(pk=instance.pk).update(discounted_price=None)
 
 
+
+@receiver(pre_save, sender=Products)
+def fa_slugify(sender, instance, **kwargs):
+    if not instance.slug:
+        if not instance.title:
+            pass
+        # splited_tittle = tittle.split(' ')
+        # slugged = splited_tittle[0]
+        # for word in splited_tittle[1::]:
+        #     slugged += '-' + word
+        slugged = slugify(instance.title, allow_unicode=True)
+        count = 1
+        while Products.objects.filter(slug=slugged).exists():
+            slugged = slugged + f'{count}'
+            count += 1
+        instance.slug = slugged
