@@ -1,4 +1,4 @@
-from django.urls import path, include
+from django.urls import path, include, re_path
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from home import admin
 from . import views
@@ -10,7 +10,9 @@ urlpatterns = [
     path('most-sells-products/', views.product_most_sells.as_view(), name='most-sells-products'),
     path('filter/', views.ProductFilter.as_view(), name='my_view'),
     path('slider/', views.Slides.as_view(), name='slider'),
-    path('<slug:slug>/', views.Product_detail.as_view(), name='product_detail'),
+    # path('<int:pk>/', views.Product_detail.as_view(), name='product_detail'),
+    re_path(r'(?P<slug>[\w\-_۰-۹آ-ی]+)/', views.Product_detail.as_view(), name='product_detail'),
+
     path('add-to-basket/<slug:slug>/', views.add_basket.as_view(), name='add_to_basket'),
 
 ]
