@@ -8,6 +8,7 @@ from django.utils import timezone
 from .models import Discount, Categories, Products
 from django.db.models import F
 
+
 # ایجاد یک scheduler
 # scheduler = BackgroundScheduler()
 #
@@ -57,23 +58,27 @@ def update_product_prices(sender, instance, **kwargs):
         print(product.price)
         product.save()
 
-#hale
+
+# hale
 @receiver(pre_delete, sender=Discount)
 def handle_discount_deletion(sender, instance, **kwargs):
     Categories.objects.filter(discount=instance).update(discount=None)
+
 
 # firdst update_discounted_price
 @receiver(post_save, sender=Products)
 def update_product_discounted_price(sender, instance, created, **kwargs):
     print("product post save")
-    update_discounted_price(instance) # Call the helper function
+    update_discounted_price(instance)  # Call the helper function
+
 
 @receiver(m2m_changed, sender=Products.category.through)
 def update_products_on_category_change(sender, instance, action, **kwargs):
     if action in ("post_add", "post_remove", "post_clear"):
-        update_discounted_price(instance) # Call the helper function
+        update_discounted_price(instance)  # Call the helper function
 
-def update_discounted_price(instance): # Helper function
+
+def update_discounted_price(instance):  # Helper function
     valid_discounts = []
     for category in instance.category.all().prefetch_related('discount'):
         if category.discount and category.discount.is_active:  # Assuming is_valid() is defined
@@ -86,12 +91,11 @@ def update_discounted_price(instance): # Helper function
 
     max_discount = max(valid_discounts) if valid_discounts else 0
 
-    if max_discount > 0 :
+    if max_discount > 0:
         discounted_price = int(instance.price * (100 - max_discount) // 100)
         Products.objects.filter(pk=instance.pk).update(discounted_price=discounted_price)
     else:
         Products.objects.filter(pk=instance.pk).update(discounted_price=None)
-
 
 
 @receiver(pre_save, sender=Products)
@@ -99,10 +103,6 @@ def fa_slugify(sender, instance, **kwargs):
     if not instance.slug:
         if not instance.title:
             pass
-        # splited_tittle = tittle.split(' ')
-        # slugged = splited_tittle[0]
-        # for word in splited_tittle[1::]:
-        #     slugged += '-' + word
         slugged = slugify(instance.title, allow_unicode=True)
         count = 1
         while Products.objects.filter(slug=slugged).exists():
