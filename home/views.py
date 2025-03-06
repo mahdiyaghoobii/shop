@@ -58,10 +58,18 @@ class ProductFilter(APIView):
         return Response(product_serializer.data, status=status.HTTP_200_OK)
 
 
+class popular_product(APIView): #need pagination!!!!!!!!
+    authentication_classes = []
+    permission_classes = [AllowAny]
+    def get(self, request: Request):
+        product_list = Products.objects.filter(rate__gt=0).order_by('-rate')
+        popular_prodiuct_serializer = ProductSerializer(product_list, many=True)
+        return Response(popular_prodiuct_serializer.data, status=status.HTTP_200_OK)
+
+
 class product_most_sells(APIView):
     authentication_classes = []
     permission_classes = [AllowAny]
-
     def get(self, request: Request):
         mslist = Products.objects.all().order_by('-sell_count')[:10]
         product_most_sells_serilizer = MostSellProductSerializer(mslist, many=True)
@@ -154,3 +162,33 @@ class clear_basket(APIView):
         else:
             return Response({"message": "Basket is already empty."},
                             status=status.HTTP_200_OK)  # optional: you can also return 404
+
+class rating(APIView):
+    authentication_classes = []
+    permission_classes = [AllowAny]
+    def post(self, request: Request):
+        rate_unrate = request.data.get('rate_unrate')
+        # rate = request.POST.get('rate')
+        slug = request.data.get('slug')
+        print(request.data.get('rate_unrate'))
+        product = Products.objects.get(slug=slug)
+        if rate_unrate == 'rate':
+            if product:
+                product.rate += 1
+                product.save()
+                return Response({"message": f"{slug}'s rate increased: {product.rate}"},
+                               status=status.HTTP_200_OK)
+            else:
+                return Response({"message": f"there is no product with this slug: {slug}"},status=status.HTTP_404_NOT_FOUND)
+
+        else:
+            if product:
+                product.rate -= 1
+                if product.rate >= 0:
+                    product.save()
+                    return Response({"message": f"{slug}'s rate decreased: {product.rate}"},
+                                    status=status.HTTP_200_OK)
+                else:
+                    return Response({"message": f"{slug}'s rate is also 0."}, status=status.HTTP_200_OK)
+            else:
+                return Response({"message": f"there is no product with this slug: {slug}"},status=status.HTTP_404_NOT_FOUND)
