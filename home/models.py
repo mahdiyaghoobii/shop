@@ -166,19 +166,18 @@ class Products(models.Model):
     discounted_price = models.IntegerField(null=True, blank=True, default=0, help_text='تومان',
                                            verbose_name='قیمت پس از تخفیف', db_index=True)
     content = models.TextField(null=True, verbose_name='توضیحات')
-    Info = models.OneToOneField(ProductsInfo, on_delete=models.CASCADE, blank=True, null=True,
-                                related_name='Product_Information', verbose_name='اطلاعات تکمیلی')
-    category = models.ManyToManyField(Categories, blank=True, verbose_name='دسته بندی')
     quantity = models.PositiveIntegerField(default=0, verbose_name='تعداد')
     slug = models.SlugField(max_length=100, unique=True, db_index=True, blank=True, null=True,
                             allow_unicode=True, verbose_name='عنوان در url')
-    # rate = models.IntegerField(default=0, editable=False, verbose_name='امتیاز')
+    rate = models.IntegerField(default=0, verbose_name='امتیاز')
     sell_count = models.IntegerField(default=0, verbose_name='تعداد فروش')
-    # test = models.CharField(null=True, blank=True)
     is_active = models.BooleanField(default=False, verbose_name='فعال / غیر فعال')
     last_update = models.DateTimeField(auto_now=True, verbose_name='آخرین تغییرات', null=True)  # problem:
-    image = models.ForeignKey(Image, on_delete=models.CASCADE, null=True, blank=True, verbose_name='تصویر')
     is_deleted = models.BooleanField(default=False, verbose_name='حذف شده / نشده')
+    Info = models.OneToOneField(ProductsInfo, on_delete=models.CASCADE, blank=True, null=True,
+                                related_name='Product_Information', verbose_name='اطلاعات تکمیلی')
+    category = models.ManyToManyField(Categories, blank=True, verbose_name='دسته بندی')
+    image = models.ForeignKey(Image, on_delete=models.CASCADE, null=True, blank=True, verbose_name='تصویر')
     tags = models.ManyToManyField(ProductTag, blank=True, verbose_name='تگ', default=None)
 
     class Meta:
