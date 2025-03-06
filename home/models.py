@@ -171,7 +171,7 @@ class Products(models.Model):
     category = models.ManyToManyField(Categories, blank=True, verbose_name='دسته بندی')
     quantity = models.PositiveIntegerField(default=0, verbose_name='تعداد')
     slug = models.SlugField(max_length=100, unique=True, db_index=True, blank=True, null=True,
-                            verbose_name='عنوان در url')
+                            allow_unicode=True, verbose_name='عنوان در url')
     # rate = models.IntegerField(default=0, editable=False, verbose_name='امتیاز')
     sell_count = models.IntegerField(default=0, verbose_name='تعداد فروش')
     # test = models.CharField(null=True, blank=True)
@@ -189,13 +189,6 @@ class Products(models.Model):
         return self.title
 
     def save(self, *args, **kwargs):
-        def fa_slugify():
-            tittle = self.title
-            splited_tittle = tittle.split(' ')
-            slugged = splited_tittle[0]
-            for word in splited_tittle[1::]:
-                slugged += '-' + word
-            self.slug = slugged
         super().save(*args, **kwargs)
 
 
