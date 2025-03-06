@@ -67,8 +67,8 @@ class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Products
         fields = (
-            'title', 'price', 'discounted_price', 'Info', 'category', 'quantity', 'slug', 'sell_count', 'is_active',
-            'image', 'tags', 'last_update')
+            'title', 'price', 'discounted_price', 'quantity', 'slug', 'sell_count', 'is_active',
+            'last_update', 'rate', 'Info', 'category', 'image', 'tags')
 
 
 class MostSellProductSerializer(serializers.ModelSerializer):
@@ -78,11 +78,21 @@ class MostSellProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Products
         fields = ('title', 'price', 'discounted_price', 'Info',
-                  'image', 'sell_count','slug')
+                  'image', 'sell_count', 'slug', 'rate')
     # def get_image_url(self, product):
     #     if product.image:
     #         return 'https://127.0.0.1:8000' + product.image.url
     #     return None
+
+
+class PopularProductSerializer(serializers.ModelSerializer):
+    Info = ProductsInfoSerializer()
+    image = ImageSerializer()
+
+    class Meta:
+        model = models.Products
+        fields = ('title', 'price', 'discounted_price', 'Info',
+                  'image', 'sell_count', 'slug', 'rate')
 
 
 class SliderSerializer(serializers.ModelSerializer):
