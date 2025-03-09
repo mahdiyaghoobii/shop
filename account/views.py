@@ -92,7 +92,7 @@ class RefreshTokenView(APIView):
     def get(self, request):
         refresh_token = request.COOKIES.get('token')
 
-        if refresh_token is None:
+        if not refresh_token:
             return Response({"error": "Refresh token not found."}, status=status.HTTP_400_BAD_REQUEST)
 
         try:
