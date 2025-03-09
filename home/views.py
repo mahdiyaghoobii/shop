@@ -58,9 +58,10 @@ class ProductFilter(APIView):
         return Response(product_serializer.data, status=status.HTTP_200_OK)
 
 
-class popular_product(APIView): #need pagination!!!!!!!!
+class popular_product(APIView):  # need pagination!!!!!!!!
     authentication_classes = []
     permission_classes = [AllowAny]
+
     def get(self, request: Request):
         product_list = Products.objects.filter(rate__gt=0).order_by('-rate')
         popular_prodiuct_serializer = ProductSerializer(product_list, many=True)
@@ -70,6 +71,7 @@ class popular_product(APIView): #need pagination!!!!!!!!
 class product_most_sells(APIView):
     authentication_classes = []
     permission_classes = [AllowAny]
+
     def get(self, request: Request):
         mslist = Products.objects.all().order_by('-sell_count')[:10]
         product_most_sells_serilizer = MostSellProductSerializer(mslist, many=True)
@@ -163,50 +165,67 @@ class clear_basket(APIView):
             return Response({"message": "Basket is already empty."},
                             status=status.HTTP_200_OK)  # optional: you can also return 404
 
+
 class rating(APIView):
     authentication_classes = []
     permission_classes = [AllowAny]
+
     def post(self, request: Request):
         rate_unrate = request.data.get('rate_unrate')
         # rate = request.POST.get('rate')
         slug = request.data.get('slug')
         print(request.data.get('rate_unrate'))
         product = Products.objects.get(slug=slug)
-        # Rate
-        rated_products = request.session.get('rated',[])
+        rated_products = request.session.get('rated', [])
 
         if rate_unrate == 'rate':
+            # -------------------- each user can rate a product just once  -----------------------
+            if product.pk in rated_products:
+                return Response({"message": f"You have already rated this product: {slug}"},
+                                status=status.HTTP_200_OK)
 
-            if product:
-                product.rate += 1
-                product.save()
-
-                if product.pk not in rated_products:
-                    rated_products.append(product.pk)
-                    request.session['rated'] = rated_products
-                else:
-                    request.session['rated'] = [product.pk]
-                request.session.save()
-
-                return Response({"message": f"{slug}'s rate increased: {product.rate} , rated products: {request.session['rated']}"},
-                               status=status.HTTP_200_OK)
             else:
-                return Response({"message": f"there is no product with this slug: {slug}"},status=status.HTTP_404_NOT_FOUND)
-        # UnRate
-        elif rate_unrate == 'unrate':
-            if product:
-                product.rate -= 1
-                if product.pk in rated_products:
-                    rated_products.remove(product.pk)
-                    request.session['rated'] = rated_products
-                    request.session.save()
-                if product.rate >= 0:
+                if product:
+                    product.rate += 1
                     product.save()
-                    return Response({"message": f"{slug}'s rate decreased: {product.rate} , rated products: {request.session['rated']}"},
+
+                    if product.pk not in rated_products:
+                        rated_products.append(product.pk)
+                        request.session['rated'] = rated_products
+                    else:
+                        request.session['rated'] = [product.pk]
+                    request.session.save()
+
+                    return Response({
+                                        "message": f"{slug}'s rate increased: {product.rate} , rated products: {request.session['rated']}"},
                                     status=status.HTTP_200_OK)
                 else:
-                    return Response({"message": f"{slug}'s rate is also 0."}, status=status.HTTP_200_OK)
+                    return Response({"message": f"there is no product with this slug: {slug}"},
+                                    status=status.HTTP_404_NOT_FOUND)
+
+        elif rate_unrate == 'unrate':
+            # -------------------- each user can unrate a product just once  -----------------------
+            if product.pk not in rated_products:
+                return Response({"message": f"You have already unrated this product: {slug}"},
+                                status=status.HTTP_200_OK)
+
             else:
-                return Response({"message": f"there is no product with this slug: {slug}"},status=status.HTTP_404_NOT_FOUND)
+                if product:
+                    product.rate -= 1
+                    if product.pk in rated_products:
+                        rated_products.remove(product.pk)
+                        request.session['rated'] = rated_products
+                        request.session.save()
+                    if product.rate >= 0:
+                        product.save()
+                        return Response({
+                                            "message": f"{slug}'s rate decreased: {product.rate} , rated products: {request.session['rated']}"},
+                                        status=status.HTTP_200_OK)
+                    else:
+                        return Response({"message": f"{slug}'s rate is also 0."}, status=status.HTTP_200_OK)
+                else:
+                    return Response({"message": f"there is no product with this slug: {slug}"},
+                                    status=status.HTTP_404_NOT_FOUND)
         else:
-            return Response({"message": f"there is no product with this slug: {slug}"}, status=status.HTTP_404_NOT_FOUND)
+            return Response({"message": f"there is no product with this slug: {slug}"},
+                            status=status.HTTP_404_NOT_FOUND)
