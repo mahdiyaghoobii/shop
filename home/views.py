@@ -172,23 +172,41 @@ class rating(APIView):
         slug = request.data.get('slug')
         print(request.data.get('rate_unrate'))
         product = Products.objects.get(slug=slug)
+        # Rate
+        rated_products = request.session.get('rated',[])
+
         if rate_unrate == 'rate':
+
             if product:
                 product.rate += 1
                 product.save()
-                return Response({"message": f"{slug}'s rate increased: {product.rate}"},
+
+                if product.pk not in rated_products:
+                    rated_products.append(product.pk)
+                    request.session['rated'] = rated_products
+                else:
+                    request.session['rated'] = [product.pk]
+                request.session.save()
+
+                return Response({"message": f"{slug}'s rate increased: {product.rate} , rated products: {request.session['rated']}"},
                                status=status.HTTP_200_OK)
             else:
                 return Response({"message": f"there is no product with this slug: {slug}"},status=status.HTTP_404_NOT_FOUND)
-
-        else:
+        # UnRate
+        elif rate_unrate == 'unrate':
             if product:
                 product.rate -= 1
+                if product.pk in rated_products:
+                    rated_products.remove(product.pk)
+                    request.session['rated'] = rated_products
+                    request.session.save()
                 if product.rate >= 0:
                     product.save()
-                    return Response({"message": f"{slug}'s rate decreased: {product.rate}"},
+                    return Response({"message": f"{slug}'s rate decreased: {product.rate} , rated products: {request.session['rated']}"},
                                     status=status.HTTP_200_OK)
                 else:
                     return Response({"message": f"{slug}'s rate is also 0."}, status=status.HTTP_200_OK)
             else:
                 return Response({"message": f"there is no product with this slug: {slug}"},status=status.HTTP_404_NOT_FOUND)
+        else:
+            return Response({"message": f"there is no product with this slug: {slug}"}, status=status.HTTP_404_NOT_FOUND)
