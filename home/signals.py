@@ -68,8 +68,13 @@ def handle_discount_deletion(sender, instance, **kwargs):
 # firdst update_discounted_price
 @receiver(post_save, sender=Products)
 def update_product_discounted_price(sender, instance, created, **kwargs):
-    print("product post save")
-    update_discounted_price(instance)  # Call the helper function
+    print("product post save", created)
+    if instance.discounted_price:
+        print("product discounted price", instance.discounted_price)
+    elif not instance.discounted_price:
+        update_discounted_price(instance)
+
+
 
 
 @receiver(m2m_changed, sender=Products.category.through)
@@ -78,24 +83,29 @@ def update_products_on_category_change(sender, instance, action, **kwargs):
         update_discounted_price(instance)  # Call the helper function
 
 
-def update_discounted_price(instance):  # Helper function
+def update_discounted_price(instance, *args, **kwargs):  # Helper function
     valid_discounts = []
-    for category in instance.category.all().prefetch_related('discount'):
-        if category.discount and category.discount.is_active:  # Assuming is_valid() is defined
-            if Discount.objects.get(title=category.discount).is_active:
-                valid_discounts.append(category.discount.percentage)
-            else:
+
+
+    if args[0]:
+
+        for category in instance.category.all().prefetch_related('discount'):
+            if category.discount and category.discount.is_active:  # Assuming is_valid() is defined
+                if Discount.objects.get(title=category.discount).is_active:
+                    valid_discounts.append(category.discount.percentage)
+                else:
+                    valid_discounts.append(0)
+            elif not category.discount:
                 valid_discounts.append(0)
-        elif not category.discount:
-            valid_discounts.append(0)
 
-    max_discount = max(valid_discounts) if valid_discounts else 0
+        max_discount = max(valid_discounts) if valid_discounts else 0
 
-    if max_discount > 0:
-        discounted_price = int(instance.price * (100 - max_discount) // 100)
-        Products.objects.filter(pk=instance.pk).update(discounted_price=discounted_price)
-    else:
-        Products.objects.filter(pk=instance.pk).update(discounted_price=None)
+        if max_discount > 0:
+            discounted_price = int(instance.price * (100 - max_discount) // 100)
+            Products.objects.filter(pk=instance.pk).update(discounted_price=discounted_price)
+        else:
+            Products.objects.filter(pk=instance.pk).update(discounted_price=None)
+
 
 
 @receiver(pre_save, sender=Products)
