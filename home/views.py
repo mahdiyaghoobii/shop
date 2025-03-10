@@ -7,6 +7,11 @@ from rest_framework.request import Request
 from .models import Products, Slider
 from .serializer import RegisterSerializer, ProductSerializer, MostSellProductSerializer, SliderSerializer
 
+def paginate_and_serialize(request, queryset, serializer_class, pagination_class):
+    paginator = pagination_class()
+    paginated_queryset = paginator.paginate_queryset(queryset, request)
+    serializer = serializer_class(paginated_queryset, many=True)
+    return paginator.get_paginated_response(serializer.data)
 
 class CustomPagination(pagination.PageNumberPagination):
     page_size = 2  # Number of items per page
@@ -14,16 +19,18 @@ class CustomPagination(pagination.PageNumberPagination):
     max_page_size = 30  # Maximum number of items per page
 
 
-class productlist(APIView):
+class ProductList(APIView):
     authentication_classes = []  # غیرفعال کردن JWT برای این ویو
     permission_classes = [AllowAny]  # اجازه دسترسی به همه کاربران
 
     def get(self, request: Request):
         prlist = Products.objects.all()
-        paginator = CustomPagination()
-        paginated_prlist = paginator.paginate_queryset(prlist, request)
-        product_serializer = ProductSerializer(paginated_prlist, many=True)
-        return paginator.get_paginated_response(product_serializer.data)
+        return paginate_and_serialize(
+            request=request,
+            queryset=prlist,
+            serializer_class=ProductSerializer,
+            pagination_class=CustomPagination
+        )
         # return Response(product_serializer.data, status=status.HTTP_200_OK)
 
 
@@ -39,9 +46,6 @@ class ProductFilter(APIView):
         price_max = int(request.query_params.get('max', default=9999999999999999999999))
         # Start with all products
         prlist = Products.objects.all()
-        paginator = CustomPagination()
-        paginated_prlist = paginator.paginate_queryset(prlist, request)
-        product_serializer = ProductSerializer(paginated_prlist, many=True)
         # Apply filters based on query parameters
         if tag_title is not None:  # tag filter
             prlist = prlist.filter(tags__title=tag_title)
@@ -57,8 +61,12 @@ class ProductFilter(APIView):
             if not prlist.exists():
                 return Response({"error": f"No products found for this price range: {price_min} - {price_max}."},
                                 status=status.HTTP_404_NOT_FOUND)
-        return paginator.get_paginated_response(product_serializer.data)
-        # return Response(product_serializer.data, status=status.HTTP_200_OK)
+        return paginate_and_serialize(
+            request=request,
+            queryset=prlist,
+            serializer_class=ProductSerializer,
+            pagination_class=CustomPagination
+        )        # return Response(product_serializer.data, status=status.HTTP_200_OK)
 
 
 class popular_product(APIView):  # need pagination!!!!!!!!
@@ -67,8 +75,12 @@ class popular_product(APIView):  # need pagination!!!!!!!!
 
     def get(self, request: Request):
         product_list = Products.objects.filter(rate__gt=0).order_by('-rate')
-        popular_prodiuct_serializer = ProductSerializer(product_list, many=True)
-        return Response(popular_prodiuct_serializer.data, status=status.HTTP_200_OK)
+        return paginate_and_serialize(
+            request=request,
+            queryset=product_list,
+            serializer_class=ProductSerializer,
+            pagination_class=CustomPagination
+        )
 
 
 class product_most_sells(APIView):
