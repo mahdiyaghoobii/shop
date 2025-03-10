@@ -9,9 +9,9 @@ from .serializer import RegisterSerializer, ProductSerializer, MostSellProductSe
 
 
 class CustomPagination(pagination.PageNumberPagination):
-    page_size = 1  # Number of items per page
+    page_size = 2  # Number of items per page
     page_size_query_param = 'page_size'
-    max_page_size = 100
+    max_page_size = 30  # Maximum number of items per page
 
 
 class productlist(APIView):
@@ -20,11 +20,11 @@ class productlist(APIView):
 
     def get(self, request: Request):
         prlist = Products.objects.all()
-        # paginator = CustomPagination()
-        # paginated_prlist = paginator.paginate_queryset(prlist, request)
-        product_serializer = ProductSerializer(prlist, many=True)
-        # return paginator.get_paginated_response(product_serializer.data)
-        return Response(product_serializer.data, status=status.HTTP_200_OK)
+        paginator = CustomPagination()
+        paginated_prlist = paginator.paginate_queryset(prlist, request)
+        product_serializer = ProductSerializer(paginated_prlist, many=True)
+        return paginator.get_paginated_response(product_serializer.data)
+        # return Response(product_serializer.data, status=status.HTTP_200_OK)
 
 
 class ProductFilter(APIView):
@@ -39,6 +39,9 @@ class ProductFilter(APIView):
         price_max = int(request.query_params.get('max', default=9999999999999999999999))
         # Start with all products
         prlist = Products.objects.all()
+        paginator = CustomPagination()
+        paginated_prlist = paginator.paginate_queryset(prlist, request)
+        product_serializer = ProductSerializer(paginated_prlist, many=True)
         # Apply filters based on query parameters
         if tag_title is not None:  # tag filter
             prlist = prlist.filter(tags__title=tag_title)
@@ -54,8 +57,8 @@ class ProductFilter(APIView):
             if not prlist.exists():
                 return Response({"error": f"No products found for this price range: {price_min} - {price_max}."},
                                 status=status.HTTP_404_NOT_FOUND)
-        product_serializer = ProductSerializer(prlist, many=True)
-        return Response(product_serializer.data, status=status.HTTP_200_OK)
+        return paginator.get_paginated_response(product_serializer.data)
+        # return Response(product_serializer.data, status=status.HTTP_200_OK)
 
 
 class popular_product(APIView):  # need pagination!!!!!!!!
@@ -197,8 +200,9 @@ class rating(APIView):
                     request.session.save()
 
                     return Response({
-                                        "message": f"{slug}'s rate increased: {product.rate} , rated products: {request.session['rated']}"},
+                                        "product-rate": f"{product.rate}" , "rate-unrate": f"{product.id in request.session['rated'] }"},
                                     status=status.HTTP_200_OK)
+
                 else:
                     return Response({"message": f"there is no product with this slug: {slug}"},
                                     status=status.HTTP_404_NOT_FOUND)
@@ -219,8 +223,9 @@ class rating(APIView):
                     if product.rate >= 0:
                         product.save()
                         return Response({
-                                            "message": f"{slug}'s rate decreased: {product.rate} , rated products: {request.session['rated']}"},
-                                        status=status.HTTP_200_OK)
+                            "product-rate": f"{product.rate}",
+                            "rate-unrate": f"{product.id in request.session['rated']}"},
+                            status=status.HTTP_200_OK)
                     else:
                         return Response({"message": f"{slug}'s rate is also 0."}, status=status.HTTP_200_OK)
                 else:
