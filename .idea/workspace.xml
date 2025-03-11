@@ -4,14 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d346ba8d-3471-4fb1-81d1-362c192cc44f" name="Changes" comment="refactor: update workspace configuration and rename category query parameter for clarity">
+    <list default="true" id="d346ba8d-3471-4fb1-81d1-362c192cc44f" name="Changes" comment="pagination set">
+      <change afterPath="$PROJECT_DIR$/home/migrations/0002_products_rate_alter_products_slug.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6d4b9b11-9177-4fe3-988c-98ebefbdfba4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6d4b9b11-9177-4fe3-988c-98ebefbdfba4.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6d4b9b11-9177-4fe3-988c-98ebefbdfba4/storage_v2/_src_/database/eshopdb.mWIAqQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6d4b9b11-9177-4fe3-988c-98ebefbdfba4/storage_v2/_src_/database/eshopdb.mWIAqQ/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2_18_2025_2_35_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2_18_2025_2_35_PM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shop.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shop.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/serializer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/shop/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +44,9 @@
     <option name="defaultAccountId" value="b89fa2d7-b7f9-4e76-98e2-12a168079e12" />
   </component>
   <component name="GithubPullRequestsUISettings">{}</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/.venv/.gitignore" root0="SKIP_INSPECTION" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -53,38 +58,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Django Server.shop.executor&quot;: &quot;Run&quot;,
-    &quot;Notification.DisplayName-DoNotAsk-Database detector&quot;: &quot;Database detector&quot;,
-    &quot;Notification.DisplayName-DoNotAsk-GitHub Copilot&quot;: &quot;GitHub Copilot&quot;,
-    &quot;Notification.DoNotAsk-Database detector&quot;: &quot;true&quot;,
-    &quot;Notification.DoNotAsk-GitHub Copilot&quot;: &quot;true&quot;,
-    &quot;Python.1.executor&quot;: &quot;Run&quot;,
-    &quot;Python.script.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/py/django-pr/shop/media&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;terminal&quot;,
-    &quot;settings.editor.splitter.proportion&quot;: &quot;0.2967359&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Django Server.shop.executor": "Run",
+    "Notification.DisplayName-DoNotAsk-Database detector": "Database detector",
+    "Notification.DisplayName-DoNotAsk-GitHub Copilot": "GitHub Copilot",
+    "Notification.DoNotAsk-Database detector": "true",
+    "Notification.DoNotAsk-GitHub Copilot": "true",
+    "Python.1.executor": "Run",
+    "Python.script.executor": "Run",
+    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "django.template.preview.state": "SHOW_EDITOR",
+    "git-widget-placeholder": "master",
+    "ignore_missing_gitignore": "true",
+    "last_opened_file_path": "C:/Users/YAKOOzA/Downloads/Compressed/zencoder-1.16.3.zip",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "ai.zencoder.plugin.settings",
+    "settings.editor.splitter.proportion": "0.2967359",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql_aurora&quot;,
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql_aurora",
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\py\django-pr\shop\media" />
@@ -128,8 +135,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-76f8388c3a79-JavaScript-PY-243.24978.54" />
-        <option value="bundled-python-sdk-91e3b7efe1d4-466328ff949b-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.24978.54" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-PY-243.25659.43" />
+        <option value="bundled-python-sdk-181015f7ab06-4df51de95216-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.25659.43" />
       </set>
     </attachedChunks>
   </component>
@@ -177,400 +184,433 @@
       <workItem from="1739989707372" duration="9518000" />
       <workItem from="1740080744389" duration="4009000" />
       <workItem from="1740085440018" duration="156000" />
+      <workItem from="1740085605448" duration="12342000" />
+      <workItem from="1740137161872" duration="3438000" />
+      <workItem from="1740218331282" duration="1306000" />
+      <workItem from="1740229477085" duration="2154000" />
+      <workItem from="1740243597168" duration="705000" />
+      <workItem from="1740304324447" duration="558000" />
+      <workItem from="1740306471367" duration="9988000" />
+      <workItem from="1740394642277" duration="4053000" />
+      <workItem from="1740409604168" duration="2739000" />
+      <workItem from="1740413298576" duration="2384000" />
+      <workItem from="1740415890016" duration="53000" />
+      <workItem from="1740415950669" duration="1278000" />
+      <workItem from="1740478007299" duration="136000" />
+      <workItem from="1740478280690" duration="2457000" />
+      <workItem from="1740996303985" duration="1116000" />
+      <workItem from="1741000677704" duration="4421000" />
+      <workItem from="1741005183305" duration="845000" />
+      <workItem from="1741071648758" duration="1000" />
+      <workItem from="1741113054395" duration="3723000" />
+      <workItem from="1741212578203" duration="5735000" />
+      <workItem from="1741276338682" duration="4151000" />
+      <workItem from="1741283518924" duration="73000" />
+      <workItem from="1741283652587" duration="1314000" />
+      <workItem from="1741285032761" duration="1000" />
+      <workItem from="1741361392849" duration="600000" />
+      <workItem from="1741443897807" duration="2887000" />
+      <workItem from="1741467140897" duration="50000" />
+      <workItem from="1741523420101" duration="3037000" />
+      <workItem from="1741535539816" duration="2961000" />
+      <workItem from="1741539602084" duration="1986000" />
+      <workItem from="1741590487625" duration="284000" />
+      <workItem from="1741596906786" duration="9097000" />
+      <workItem from="1741680734223" duration="891000" />
     </task>
-    <task id="LOCAL-00019" summary="create random products">
+    <task id="LOCAL-00069" summary="improved readability">
       <option name="closed" value="true" />
-      <created>1739628552490</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
+      <created>1740085675774</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
       <option name="project" value="LOCAL" />
-      <updated>1739628552490</updated>
+      <updated>1740085675774</updated>
     </task>
-    <task id="LOCAL-00020" summary="create random products">
+    <task id="LOCAL-00070" summary="improve readability">
       <option name="closed" value="true" />
-      <created>1739628563455</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
+      <created>1740085697872</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
       <option name="project" value="LOCAL" />
-      <updated>1739628563455</updated>
+      <updated>1740085697872</updated>
     </task>
-    <task id="LOCAL-00021" summary="enable CORS for all origins">
+    <task id="LOCAL-00071" summary="remove unnecessary blank line in settings.py">
       <option name="closed" value="true" />
-      <created>1739628585206</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
+      <created>1740085745697</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
       <option name="project" value="LOCAL" />
-      <updated>1739628585206</updated>
+      <updated>1740085745697</updated>
     </task>
-    <task id="LOCAL-00022" summary="add user signout functionality and update authentication permissions">
+    <task id="LOCAL-00072" summary="rename view for product detail route for clarity">
       <option name="closed" value="true" />
-      <created>1739709158974</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
+      <created>1740085798868</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
       <option name="project" value="LOCAL" />
-      <updated>1739709158974</updated>
+      <updated>1740085798868</updated>
     </task>
-    <task id="LOCAL-00023" summary="update dependencies">
+    <task id="LOCAL-00073" summary="rename product_detail class for consistency and improve code formatting">
       <option name="closed" value="true" />
-      <created>1739712297630</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
+      <created>1740085826914</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
       <option name="project" value="LOCAL" />
-      <updated>1739712297630</updated>
+      <updated>1740085826916</updated>
     </task>
-    <task id="LOCAL-00024" summary="add Discount">
+    <task id="LOCAL-00074" summary="refactor: update workspace configuration and rename category query parameter for clarity">
       <option name="closed" value="true" />
-      <created>1739741437285</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
+      <created>1740085837618</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
       <option name="project" value="LOCAL" />
-      <updated>1739741437285</updated>
+      <updated>1740085837618</updated>
     </task>
-    <task id="LOCAL-00025" summary="add Discount model and update product pricing logic based on category discounts">
+    <task id="LOCAL-00075" summary="chore: add changelist for uncommitted changes before update at 2/18/2025">
       <option name="closed" value="true" />
-      <created>1739741454874</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
+      <created>1740085861069</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
       <option name="project" value="LOCAL" />
-      <updated>1739741454874</updated>
+      <updated>1740085861069</updated>
     </task>
-    <task id="LOCAL-00026" summary="add Discount model and update product and category fields for discount management">
+    <task id="LOCAL-00076" summary="chore: add changelist for uncommitted changes before update at 2/18/2025 2:35 PM">
       <option name="closed" value="true" />
-      <created>1739741482116</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
+      <created>1740085885419</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
       <option name="project" value="LOCAL" />
-      <updated>1739741482116</updated>
+      <updated>1740085885419</updated>
     </task>
-    <task id="LOCAL-00027" summary="update workspace configuration and add tasks for dependency updates">
+    <task id="LOCAL-00077" summary="add ProductInfoPublisherSerializer and update ProductsInfoSerializer fields">
       <option name="closed" value="true" />
-      <created>1739741496850</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
+      <created>1740137262311</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
       <option name="project" value="LOCAL" />
-      <updated>1739741496850</updated>
+      <updated>1740137262311</updated>
     </task>
-    <task id="LOCAL-00028" summary="update workspace configuration and add tasks for dependency updates">
+    <task id="LOCAL-00078" summary="extend refresh token lifetime to 7 days">
       <option name="closed" value="true" />
-      <created>1739741548803</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
+      <created>1740137287625</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
       <option name="project" value="LOCAL" />
-      <updated>1739741548803</updated>
+      <updated>1740137287625</updated>
     </task>
-    <task id="LOCAL-00029" summary="update workspace configuration and add tasks for dependency updates">
+    <task id="LOCAL-00079" summary="extend refresh token lifetime to 7 days">
       <option name="closed" value="true" />
-      <created>1739741858628</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
+      <created>1740137291765</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
       <option name="project" value="LOCAL" />
-      <updated>1739741858628</updated>
+      <updated>1740137291765</updated>
     </task>
-    <task id="LOCAL-00030" summary="optimized">
+    <task id="LOCAL-00080" summary="remove commented-out signin and signup paths from urls.py">
       <option name="closed" value="true" />
-      <created>1739741889586</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
+      <created>1740137357750</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
       <option name="project" value="LOCAL" />
-      <updated>1739741889586</updated>
+      <updated>1740137357750</updated>
     </task>
-    <task id="LOCAL-00031" summary="optimize workspace configuration and update task summaries">
+    <task id="LOCAL-00081" summary="update signin and refresh token paths in urls.py">
       <option name="closed" value="true" />
-      <created>1739741919746</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
+      <created>1740137381534</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
       <option name="project" value="LOCAL" />
-      <updated>1739741919746</updated>
+      <updated>1740137381534</updated>
     </task>
-    <task id="LOCAL-00032" summary="optimized">
+    <task id="LOCAL-00082" summary="implement signin, signout, and refresh token views with cookie handling">
       <option name="closed" value="true" />
-      <created>1739785810849</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
+      <created>1740137418660</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
       <option name="project" value="LOCAL" />
-      <updated>1739785810849</updated>
+      <updated>1740137418660</updated>
     </task>
-    <task id="LOCAL-00033" summary="writer renamed to author">
+    <task id="LOCAL-00083" summary="Add slug to the most sell product serializer.">
       <option name="closed" value="true" />
-      <created>1739794580454</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
+      <created>1740229554023</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
       <option name="project" value="LOCAL" />
-      <updated>1739794580454</updated>
+      <updated>1740229554024</updated>
     </task>
-    <task id="LOCAL-00034" summary="rename writer field to author in productsinfo model">
+    <task id="LOCAL-00084" summary="...">
       <option name="closed" value="true" />
-      <created>1739794599349</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
+      <created>1740229567222</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
       <option name="project" value="LOCAL" />
-      <updated>1739794599349</updated>
+      <updated>1740229567222</updated>
     </task>
-    <task id="LOCAL-00035" summary="rename writer field to author in ProductsInfo model">
+    <task id="LOCAL-00085" summary="...">
       <option name="closed" value="true" />
-      <created>1739794610371</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
+      <created>1740229575666</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
       <option name="project" value="LOCAL" />
-      <updated>1739794610371</updated>
+      <updated>1740229575666</updated>
     </task>
-    <task id="LOCAL-00036" summary="add image_url field and update fields in MostSellProductSerializer">
+    <task id="LOCAL-00086" summary="...">
       <option name="closed" value="true" />
-      <created>1739794626228</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
+      <created>1740230546510</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
       <option name="project" value="LOCAL" />
-      <updated>1739794626228</updated>
+      <updated>1740230546510</updated>
     </task>
-    <task id="LOCAL-00037" summary="optimize workspace configuration and update task summaries">
+    <task id="LOCAL-00087" summary="Update settings for improved security and session management">
       <option name="closed" value="true" />
-      <created>1739794675047</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
+      <created>1740315200101</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
       <option name="project" value="LOCAL" />
-      <updated>1739794675047</updated>
+      <updated>1740315200102</updated>
     </task>
-    <task id="LOCAL-00038" summary="add signals import in HomeConfig ready method">
+    <task id="LOCAL-00088" summary="Update settings for improved security and session management">
       <option name="closed" value="true" />
-      <created>1739802712585</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
+      <created>1740315202662</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
       <option name="project" value="LOCAL" />
-      <updated>1739802712585</updated>
+      <updated>1740315202662</updated>
     </task>
-    <task id="LOCAL-00039" summary="refactor: remove unused signal receivers and update field references">
+    <task id="LOCAL-00089" summary="Add clear_basket and add_to_basket routes to URLs">
       <option name="closed" value="true" />
-      <created>1739802735336</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
+      <created>1740315227991</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
       <option name="project" value="LOCAL" />
-      <updated>1739802735336</updated>
+      <updated>1740315227991</updated>
     </task>
-    <task id="LOCAL-00040" summary="refactor: remove unused signal receivers and update field references">
+    <task id="LOCAL-00090" summary="Add add_basket and clear_basket views for session management">
       <option name="closed" value="true" />
-      <created>1739802746666</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
+      <created>1740315237854</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
       <option name="project" value="LOCAL" />
-      <updated>1739802746666</updated>
+      <updated>1740315237854</updated>
     </task>
-    <task id="LOCAL-00041" summary="feat: add signal handlers for Discount and Categories models to update related Products">
+    <task id="LOCAL-00091" summary="...">
       <option name="closed" value="true" />
-      <created>1739802768283</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
+      <created>1740315312765</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
       <option name="project" value="LOCAL" />
-      <updated>1739802768283</updated>
+      <updated>1740315312765</updated>
     </task>
-    <task id="LOCAL-00042" summary="add SlideAdmin for Sliders">
+    <task id="LOCAL-00092" summary="Add OAuth2 provider configuration and Redis cache settings">
       <option name="closed" value="true" />
-      <created>1739876711382</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
+      <created>1740996332263</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
       <option name="project" value="LOCAL" />
-      <updated>1739876711382</updated>
+      <updated>1740996332263</updated>
     </task>
-    <task id="LOCAL-00043" summary="add APScheduler">
+    <task id="LOCAL-00093" summary="Comment out OAuth2 provider URL inclusion in the main URL configuration">
       <option name="closed" value="true" />
-      <created>1739876783804</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
+      <created>1740996351298</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
       <option name="project" value="LOCAL" />
-      <updated>1739876783804</updated>
+      <updated>1740996351298</updated>
     </task>
-    <task id="LOCAL-00044" summary="add SliderSerializer">
+    <task id="LOCAL-00094" summary="Refactor SigninUser view by cleaning up imports and commenting out session and cache logic">
       <option name="closed" value="true" />
-      <created>1739876809427</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
+      <created>1740996363644</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
       <option name="project" value="LOCAL" />
-      <updated>1739876809427</updated>
+      <updated>1740996363644</updated>
     </task>
-    <task id="LOCAL-00045" summary="add Slider model">
+    <task id="LOCAL-00095" summary="Refactor clear_basket view by cleaning up code and adding whitespace for readability">
       <option name="closed" value="true" />
-      <created>1739876838889</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
+      <created>1740996374511</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
       <option name="project" value="LOCAL" />
-      <updated>1739876838889</updated>
+      <updated>1740996374512</updated>
     </task>
-    <task id="LOCAL-00046" summary="add discount scheduling and product price update logic">
+    <task id="LOCAL-00096" summary="added img">
       <option name="closed" value="true" />
-      <created>1739876852665</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
+      <created>1740996394847</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
       <option name="project" value="LOCAL" />
-      <updated>1739876852665</updated>
+      <updated>1740996394847</updated>
     </task>
-    <task id="LOCAL-00047" summary="add Slides view to retrieve active slider images">
+    <task id="LOCAL-00097" summary="improve clarity">
       <option name="closed" value="true" />
-      <created>1739876873384</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
+      <created>1741005236004</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
       <option name="project" value="LOCAL" />
-      <updated>1739876873384</updated>
+      <updated>1741005236005</updated>
     </task>
-    <task id="LOCAL-00048" summary="add slider endpoint to retrieve slider images">
+    <task id="LOCAL-00098" summary="Import home signals in app ready method">
       <option name="closed" value="true" />
-      <created>1739876881548</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
+      <created>1741005249686</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
       <option name="project" value="LOCAL" />
-      <updated>1739876881548</updated>
+      <updated>1741005249686</updated>
     </task>
-    <task id="LOCAL-00049" summary="add Slide model and rename it to Slider">
+    <task id="LOCAL-00099" summary="organizing signal handlers for Discounts and Products, improving discount logic and ensuring active discounts are applied correctly.">
       <option name="closed" value="true" />
-      <created>1739876892203</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
+      <created>1741005281767</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
       <option name="project" value="LOCAL" />
-      <updated>1739876892203</updated>
+      <updated>1741005281767</updated>
     </task>
-    <task id="LOCAL-00050" summary="feat: update workspace configuration and task summaries">
+    <task id="LOCAL-00100" summary="auto product title slugify">
       <option name="closed" value="true" />
-      <created>1739876898487</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
+      <created>1741213196729</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
       <option name="project" value="LOCAL" />
-      <updated>1739876898488</updated>
+      <updated>1741213196730</updated>
     </task>
-    <task id="LOCAL-00051" summary="update serializers to use direct image field and remove unused methods">
+    <task id="LOCAL-00101" summary="fix save function for Product modules">
       <option name="closed" value="true" />
-      <created>1739961802602</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
+      <created>1741221600647</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
       <option name="project" value="LOCAL" />
-      <updated>1739961802603</updated>
+      <updated>1741221600647</updated>
     </task>
-    <task id="LOCAL-00052" summary="feat: add Discount, Image, and Slider models with relationships">
+    <task id="LOCAL-00102" summary="add a signal for create persian slug from product title and set that to Product modul slug field">
       <option name="closed" value="true" />
-      <created>1739961939769</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
+      <created>1741221736062</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
       <option name="project" value="LOCAL" />
-      <updated>1739961939769</updated>
+      <updated>1741221736062</updated>
     </task>
-    <task id="LOCAL-00053" summary="enhance admin interface with image thumbnail widget and product form">
+    <task id="LOCAL-00103" summary="use re_path for routing persian slug">
       <option name="closed" value="true" />
-      <created>1739961953217</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
+      <created>1741221785201</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
       <option name="project" value="LOCAL" />
-      <updated>1739961953217</updated>
+      <updated>1741221785201</updated>
     </task>
-    <task id="LOCAL-00054" summary="add Image model and update Products and Slider to use ForeignKey for image references">
+    <task id="LOCAL-00104" summary="add rate to product module">
       <option name="closed" value="true" />
-      <created>1739961960845</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
+      <created>1741283700714</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
       <option name="project" value="LOCAL" />
-      <updated>1739961960845</updated>
+      <updated>1741283700715</updated>
     </task>
-    <task id="LOCAL-00055" summary="...">
+    <task id="LOCAL-00105" summary="create popular product serializer and reorder other serializers">
       <option name="closed" value="true" />
-      <created>1739961980949</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
+      <created>1741283757925</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
       <option name="project" value="LOCAL" />
-      <updated>1739961980949</updated>
+      <updated>1741283757925</updated>
     </task>
-    <task id="LOCAL-00056" summary="add data population script for categories, tags, publishers, images, and products">
+    <task id="LOCAL-00106" summary="reformating">
       <option name="closed" value="true" />
-      <created>1739962002631</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
+      <created>1741283774752</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
       <option name="project" value="LOCAL" />
-      <updated>1739962002631</updated>
+      <updated>1741283774752</updated>
     </task>
-    <task id="LOCAL-00057" summary="fix: add pre_save signal to update discounted price for Products">
+    <task id="LOCAL-00107" summary="add set-rate function and popular-product API url path">
       <option name="closed" value="true" />
-      <created>1739962008829</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
+      <created>1741283860256</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
       <option name="project" value="LOCAL" />
-      <updated>1739962008829</updated>
+      <updated>1741283860256</updated>
     </task>
-    <task id="LOCAL-00058" summary="feat: update workspace configuration and change list comments for improved clarity">
+    <task id="LOCAL-00108" summary="creating rating and popular-product API Classes">
       <option name="closed" value="true" />
-      <created>1739962017210</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
+      <created>1741283914446</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
       <option name="project" value="LOCAL" />
-      <updated>1739962017210</updated>
+      <updated>1741283914446</updated>
     </task>
-    <task id="LOCAL-00059" summary="add ImageSerializer and integrate it into Product and Slider serializers">
+    <task id="LOCAL-00109" summary="refactor token check to use more concise condition">
       <option name="closed" value="true" />
-      <created>1739990062742</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
+      <created>1741525918795</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
       <option name="project" value="LOCAL" />
-      <updated>1739990062742</updated>
+      <updated>1741525918795</updated>
     </task>
-    <task id="LOCAL-00060" summary="update workspace configuration and improve change list comments for clarity">
+    <task id="LOCAL-00110" summary="enhance rating functionality to track rated products in session">
       <option name="closed" value="true" />
-      <created>1739990095220</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
+      <created>1741525932921</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
       <option name="project" value="LOCAL" />
-      <updated>1739990095220</updated>
+      <updated>1741525932921</updated>
     </task>
-    <task id="LOCAL-00061" summary="rename category query parameter to 'category_url' for clarity">
+    <task id="LOCAL-00111" summary="enhance rating functionality to prevent multiple ratings and unrated actions per product ( each user can rate/unratee a product just once )">
       <option name="closed" value="true" />
-      <created>1739991157932</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
+      <created>1741526418994</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
       <option name="project" value="LOCAL" />
-      <updated>1739991157932</updated>
+      <updated>1741526418994</updated>
     </task>
-    <task id="LOCAL-00062" summary="refactor: remove unnecessary import in app ready method">
+    <task id="LOCAL-00112" summary="make discounted-price editable from product-admin list">
       <option name="closed" value="true" />
-      <created>1740005075767</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
+      <created>1741539414182</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
       <option name="project" value="LOCAL" />
-      <updated>1740005075767</updated>
+      <updated>1741539414183</updated>
     </task>
-    <task id="LOCAL-00063" summary="refactor: update ProductSerializer to allow multiple categories and adjust fields for clarity">
+    <task id="LOCAL-00113" summary="fix some issues about manual discounting">
       <option name="closed" value="true" />
-      <created>1740005082043</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
+      <created>1741539473126</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
       <option name="project" value="LOCAL" />
-      <updated>1740005082043</updated>
+      <updated>1741539473126</updated>
     </task>
-    <task id="LOCAL-00064" summary="refactor: update ProductSerializer to allow multiple categories and adjust fields for clarity">
+    <task id="LOCAL-00114" summary="fix some issues about manual discounting">
       <option name="closed" value="true" />
-      <created>1740005085280</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
+      <created>1741597390207</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
       <option name="project" value="LOCAL" />
-      <updated>1740005085280</updated>
+      <updated>1741597390207</updated>
     </task>
-    <task id="LOCAL-00065" summary="refactor: comment out unused slider detail route for future reference">
+    <task id="LOCAL-00115" summary="set pagination for productlist">
       <option name="closed" value="true" />
-      <created>1740005093912</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
+      <created>1741604783715</created>
+      <option name="number" value="00115" />
+      <option name="presentableId" value="LOCAL-00115" />
       <option name="project" value="LOCAL" />
-      <updated>1740005093912</updated>
+      <updated>1741604783715</updated>
     </task>
-    <task id="LOCAL-00066" summary="feat: add product_detail view to retrieve product by slug with public access">
+    <task id="LOCAL-00116" summary="renamed">
       <option name="closed" value="true" />
-      <created>1740005098879</created>
-      <option name="number" value="00066" />
-      <option name="presentableId" value="LOCAL-00066" />
+      <created>1741605967059</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
       <option name="project" value="LOCAL" />
-      <updated>1740005098879</updated>
+      <updated>1741605967059</updated>
     </task>
-    <task id="LOCAL-00067" summary="refactor: update workspace configuration and rename category query parameter for clarity">
+    <task id="LOCAL-00117" summary="pagination set">
       <option name="closed" value="true" />
-      <created>1740005105124</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
+      <created>1741605982716</created>
+      <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
       <option name="project" value="LOCAL" />
-      <updated>1740005105124</updated>
+      <updated>1741605982716</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <option name="localTasksCounter" value="118" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -594,32 +634,61 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add SlideAdmin for Sliders" />
-    <MESSAGE value="add APScheduler" />
-    <MESSAGE value="add SliderSerializer" />
-    <MESSAGE value="add Slider model" />
-    <MESSAGE value="add discount scheduling and product price update logic" />
-    <MESSAGE value="add Slides view to retrieve active slider images" />
-    <MESSAGE value="add slider endpoint to retrieve slider images" />
-    <MESSAGE value="add Slide model and rename it to Slider" />
-    <MESSAGE value="feat: update workspace configuration and task summaries" />
-    <MESSAGE value="update serializers to use direct image field and remove unused methods" />
-    <MESSAGE value="feat: add Discount, Image, and Slider models with relationships" />
-    <MESSAGE value="enhance admin interface with image thumbnail widget and product form" />
-    <MESSAGE value="add Image model and update Products and Slider to use ForeignKey for image references" />
-    <MESSAGE value="..." />
-    <MESSAGE value="add data population script for categories, tags, publishers, images, and products" />
-    <MESSAGE value="fix: add pre_save signal to update discounted price for Products" />
-    <MESSAGE value="feat: update workspace configuration and change list comments for improved clarity" />
-    <MESSAGE value="add ImageSerializer and integrate it into Product and Slider serializers" />
-    <MESSAGE value="update workspace configuration and improve change list comments for clarity" />
-    <MESSAGE value="rename category query parameter to 'category_url' for clarity" />
-    <MESSAGE value="refactor: remove unnecessary import in app ready method" />
-    <MESSAGE value="refactor: update ProductSerializer to allow multiple categories and adjust fields for clarity" />
-    <MESSAGE value="refactor: comment out unused slider detail route for future reference" />
-    <MESSAGE value="feat: add product_detail view to retrieve product by slug with public access" />
-    <MESSAGE value="refactor: update workspace configuration and rename category query parameter for clarity" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: update workspace configuration and rename category query parameter for clarity" />
+    <MESSAGE value="Add OAuth2 provider configuration and Redis cache settings" />
+    <MESSAGE value="Comment out OAuth2 provider URL inclusion in the main URL configuration" />
+    <MESSAGE value="Refactor SigninUser view by cleaning up imports and commenting out session and cache logic" />
+    <MESSAGE value="Refactor clear_basket view by cleaning up code and adding whitespace for readability" />
+    <MESSAGE value="added img" />
+    <MESSAGE value="improve clarity" />
+    <MESSAGE value="Import home signals in app ready method" />
+    <MESSAGE value="organizing signal handlers for Discounts and Products, improving discount logic and ensuring active discounts are applied correctly." />
+    <MESSAGE value="auto product title slugify" />
+    <MESSAGE value="fix save function for Product modules" />
+    <MESSAGE value="add a signal for create persian slug from product title and set that to Product modul slug field" />
+    <MESSAGE value="use re_path for routing persian slug" />
+    <MESSAGE value="add rate to product module" />
+    <MESSAGE value="create popular product serializer and reorder other serializers" />
+    <MESSAGE value="reformating" />
+    <MESSAGE value="add set-rate function and popular-product API url path" />
+    <MESSAGE value="creating rating and popular-product API Classes" />
+    <MESSAGE value="refactor token check to use more concise condition" />
+    <MESSAGE value="enhance rating functionality to track rated products in session" />
+    <MESSAGE value="enhance rating functionality to prevent multiple ratings and unrated actions per product ( each user can rate/unratee a product just once )" />
+    <MESSAGE value="make discounted-price editable from product-admin list" />
+    <MESSAGE value="fix some issues about manual discounting" />
+    <MESSAGE value="set pagination for productlist" />
+    <MESSAGE value="renamed" />
+    <MESSAGE value="pagination set" />
+    <option name="LAST_COMMIT_MESSAGE" value="pagination set" />
+  </component>
+  <component name="ai.zencoder.plugin.rag.settings">
+    <option name="desiredChunkSizeBytes" value="5242880" />
+    <option name="forbiddenExtensions">
+      <set>
+        <option value=".log,.lock,.svg" />
+      </set>
+    </option>
+    <option name="pollingIntervalMs" value="60000" />
+    <option name="repoIndexingIntervalMs" value="300000" />
+  </component>
+  <component name="ai.zencoder.plugin.rag.state">
+    <option name="indexedFilesMap">
+      <map>
+        <entry key="$PROJECT_DIR$/.idea/dataSources.local.xml" value="1741680859346" />
+        <entry key="$PROJECT_DIR$/.idea/dataSources/6d4b9b11-9177-4fe3-988c-98ebefbdfba4.xml" value="1741680859346" />
+        <entry key="$PROJECT_DIR$/.idea/dataSources/6d4b9b11-9177-4fe3-988c-98ebefbdfba4/storage_v2/_src_/database/eshopdb.mWIAqQ/schema/public.abK9xQ.meta" value="1741680859346" />
+        <entry key="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2_18_2025_2_35_PM_[Changes]/shelved.patch" value="9223372036854775807" />
+        <entry key="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2_18_2025_2_35_PM__Changes_.xml" value="9223372036854775807" />
+        <entry key="$PROJECT_DIR$/.idea/shop.iml" value="1741680859346" />
+        <entry key="$PROJECT_DIR$/.idea/workspace.xml" value="1741680892318" />
+        <entry key="$PROJECT_DIR$/home/migrations/0002_products_rate_alter_products_slug.py" value="1741680859346" />
+        <entry key="$PROJECT_DIR$/home/urls.py" value="1741681072625" />
+      </map>
+    </option>
+    <option name="lastCommitHash" value="83cb5822cf1cb0e0618e0a34c82d61e4ea18c415" />
+    <option name="lastIndexTimestamp" value="1741681072625" />
+    <option name="repositoryId" value="e0dbbfe0-576a-46b6-a494-7458521064e4" />
+    <option name="state" value="FULLY_INDEXED" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/shop$1.coverage" NAME="1 Coverage Results" MODIFIED="1738513293719" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Desktop" />
