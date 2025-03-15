@@ -12,6 +12,7 @@ urlpatterns = [
     path('setrate/', views.rating.as_view(), name='rating'),
     path('filter/', views.ProductFilter.as_view(), name='my_view'),
     path('slider/', views.Slides.as_view(), name='slider'),
+    path('categories/', views.CategoryList.as_view(), name='category-list'),
     # path('<int:pk>/', views.Product_detail.as_view(), name='product_detail'),
     re_path(r'(?P<slug>[\w\-_۰-۹آ-ی]+)/', views.Product_detail.as_view(), name='product_detail'),
     path('add-to-basket/<slug:slug>/', views.add_basket.as_view(), name='add_to_basket'),
