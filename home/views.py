@@ -4,8 +4,12 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import generics, mixins, viewsets, status, pagination, permissions
 from rest_framework.request import Request
-from .models import Products, Slider
-from .serializer import RegisterSerializer, ProductSerializer, MostSellProductSerializer, SliderSerializer
+from unicodedata import category
+
+from .models import Products, Slider, Categories
+from .serializer import RegisterSerializer, ProductSerializer, MostSellProductSerializer, SliderSerializer, \
+    ProductCategorySerializer
+
 
 def paginate_and_serialize(request, queryset, serializer_class, pagination_class):
     paginator = pagination_class()
@@ -33,6 +37,14 @@ class ProductList(APIView):
         )
         # return Response(product_serializer.data, status=status.HTTP_200_OK)
 
+class CategoryList(APIView):
+    authentication_classes = []
+    permission_classes = [AllowAny]
+
+    def get(self, request: Request):
+        categories = Categories.objects.all()
+        product_catrgories_serilizer = ProductCategorySerializer(categories, many=True)
+        return Response(product_catrgories_serilizer.data, status=status.HTTP_200_OK)        
 
 class ProductFilter(APIView):
     authentication_classes = []
