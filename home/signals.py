@@ -87,9 +87,9 @@ def update_discounted_price(instance, *args, **kwargs):  # Helper function
     valid_discounts = []
 
 
-    if args[0]:
+    # if args[0]:
 
-        for category in instance.category.all().prefetch_related('discount'):
+    for category in instance.category.all().prefetch_related('discount'):
             if category.discount and category.discount.is_active:  # Assuming is_valid() is defined
                 if Discount.objects.get(title=category.discount).is_active:
                     valid_discounts.append(category.discount.percentage)
@@ -98,12 +98,12 @@ def update_discounted_price(instance, *args, **kwargs):  # Helper function
             elif not category.discount:
                 valid_discounts.append(0)
 
-        max_discount = max(valid_discounts) if valid_discounts else 0
+    max_discount = max(valid_discounts) if valid_discounts else 0
 
-        if max_discount > 0:
+    if max_discount > 0:
             discounted_price = int(instance.price * (100 - max_discount) // 100)
             Products.objects.filter(pk=instance.pk).update(discounted_price=discounted_price)
-        else:
+    else:
             Products.objects.filter(pk=instance.pk).update(discounted_price=None)
 
 
