@@ -4,6 +4,7 @@ from home import admin
 from . import views
 
 urlpatterns = [
+
     # path('best_product/', views.BestProductSlider.as_view(), name='best_product'),
     path('clear_basket/', views.clear_basket.as_view(), name='clear_basket'),
     path('list-product/', views.ProductList.as_view(), name='product-list'),
