@@ -164,7 +164,7 @@ SESSION_COOKIE_AGE = 60 * 60 * 24 * 7  # 1 week
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://127.0.0.1:6379/1",  # آدرس Redis و دیتابیس شماره 1
+        "LOCATION": "redis://127.0.0.1:6379/1",  # Adjust the port if needed
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
         }
