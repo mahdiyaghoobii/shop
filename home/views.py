@@ -5,7 +5,7 @@ from rest_framework.views import APIView
 from rest_framework import generics, mixins, viewsets, status, pagination, permissions
 from rest_framework.request import Request
 from unicodedata import category
-
+from django.core.cache import cache
 from .models import Products, Slider, Categories
 from .serializer import RegisterSerializer, ProductSerializer, MostSellProductSerializer, SliderSerializer, \
     ProductCategorySerializer
@@ -28,13 +28,18 @@ class ProductList(APIView):
     permission_classes = [AllowAny]  # اجازه دسترسی به همه کاربران
 
     def get(self, request: Request):
+        product_list_cached = cache.get('product_list')
+        if product_list_cached:
+            return Response(product_list_cached)
         prlist = Products.objects.all()
-        return paginate_and_serialize(
+        product_list_cache = paginate_and_serialize(
             request=request,
             queryset=prlist,
             serializer_class=ProductSerializer,
             pagination_class=CustomPagination
         )
+        cache.set('product_list', product_list_cache.data, timeout=1800)
+        return Response(product_list_cache.data)
         # return Response(product_serializer.data, status=status.HTTP_200_OK)
 
 class CategoryList(APIView):
@@ -81,19 +86,24 @@ class ProductFilter(APIView):
         )        # return Response(product_serializer.data, status=status.HTTP_200_OK)
 
 
-class popular_product(APIView):  # need pagination!!!!!!!!
+class PopularProduct(APIView):
     authentication_classes = []
     permission_classes = [AllowAny]
 
     def get(self, request: Request):
+        popular_product_cached = cache.get('popular_product')
+        if popular_product_cached:
+            return Response(popular_product_cached, status=status.HTTP_200_OK)
+
         product_list = Products.objects.filter(rate__gt=0).order_by('-rate')
-        return paginate_and_serialize(
+        paginated_data = paginate_and_serialize(
             request=request,
             queryset=product_list,
             serializer_class=ProductSerializer,
             pagination_class=CustomPagination
         )
-
+        cache.set('popular_product', paginated_data.data, timeout=1800)  # 30 دقیقه
+        return Response(paginated_data.data, status=status.HTTP_200_OK)
 
 class product_most_sells(APIView):
     authentication_classes = []
