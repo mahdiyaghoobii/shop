@@ -25,8 +25,13 @@ from django.conf.urls.static import static
 from graphene_django.views import GraphQLView
 from django.views.decorators.csrf import csrf_exempt
 from home import views
+from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, SpectacularSwaggerView
+
 
 urlpatterns = [
+    path('api/schema/', SpectacularAPIView.as_view(), name='schema'),        # Optional UI:
+    path('api/schema/swagger-ui/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
+    path('api/schema/redoc/', SpectacularRedocView.as_view(url_name='schema'), name='redoc'),
     path('signup/', account.views.RegisterView.as_view(), name='signup'),
     path('signin/', account.views.SigninUser.as_view(), name='signin'),
     path('signout/', account.views.SignoutUser.as_view(), name='signout'),
