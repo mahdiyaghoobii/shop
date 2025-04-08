@@ -52,6 +52,9 @@ INSTALLED_APPS = [
     'account.apps.AccountConfig',
     'oauth2_provider',
     'graphene_django',
+    'drf_spectacular',
+    'drf_spectacular_sidecar',  # required for Django collectstatic discovery
+
 ]
 
 MIDDLEWARE = [
@@ -145,6 +148,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': ['rest_framework_simplejwt.authentication.JWTAuthentication', ],
     'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAuthenticated',),
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+
 }
 
 from datetime import timedelta
@@ -165,7 +170,7 @@ SESSION_COOKIE_AGE = 60 * 60 * 24 * 7  # 1 week
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://127.0.0.1:6379/1",  # Adjust the port if needed
+        "LOCATION": "redis://127.0.0.1:6379/",  # Adjust the port if needed
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
         }
@@ -183,3 +188,14 @@ GRAPHENE = {
 #     'ROTATE_REFRESH_TOKENS': True,  # تازه‌سازی توکن‌ها
 #     'AUTHORIZATION_CODE_EXPIRE_SECONDS': 60,  # زمان انقضا کد احراز هویت
 # }
+
+SPECTACULAR_SETTINGS = {
+    'SWAGGER_UI_DIST': 'SIDECAR',  # shorthand to use the sidecar instead
+    'SWAGGER_UI_FAVICON_HREF': 'SIDECAR',
+    'REDOC_DIST': 'SIDECAR',
+    'TITLE': 'Your Project API',
+    'DESCRIPTION': 'Your project description',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+    # OTHER SETTINGS
+}
