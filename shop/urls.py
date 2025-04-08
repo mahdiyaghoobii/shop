@@ -22,7 +22,8 @@ from media import images
 from django.conf import settings
 import account.views
 from django.conf.urls.static import static
-
+from graphene_django.views import GraphQLView
+from django.views.decorators.csrf import csrf_exempt
 from home import views
 
 urlpatterns = [
@@ -34,6 +35,7 @@ urlpatterns = [
     path('contact-us/', include('contact_module.urls'), name='contact-us'),
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
+    path('graphql/', csrf_exempt(GraphQLView.as_view(graphiql=True))),
     # path('api/', include('api.urls')),
     # path('best_product/', views.BestProductSlider.as_view(), name='best_product'),
     path('', include('main.urls')),
