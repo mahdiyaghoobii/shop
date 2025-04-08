@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'account.apps.AccountConfig',
     'oauth2_provider',
+    'graphene_django',
 ]
 
 MIDDLEWARE = [
@@ -135,7 +136,7 @@ TIME_FORMAT = 'H:i'
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [BASE_DIR / 'static']
+# STATICFILES_DIRS = [BASE_DIR / 'static']
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
@@ -169,6 +170,10 @@ CACHES = {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
         }
     }
+}
+
+GRAPHENE = {
+    'SCHEMA': 'shop.schema.schema'  # مسیر فایل اسکیما GraphQL
 }
 
 # OAUTH2_PROVIDER = {
