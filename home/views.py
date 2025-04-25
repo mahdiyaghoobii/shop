@@ -1,14 +1,16 @@
 from django.core.exceptions import ObjectDoesNotExist
+from django.http import HttpResponse
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import generics, mixins, viewsets, status, pagination, permissions
 from rest_framework.request import Request
-from unicodedata import category
 from django.core.cache import cache
 from .models import Products, Slider, Categories
 from .serializer import RegisterSerializer, ProductSerializer, MostSellProductSerializer, SliderSerializer, \
     ProductCategorySerializer
+import time
+from .celery import app
 
 
 def paginate_and_serialize(request, queryset, serializer_class, pagination_class):
@@ -16,6 +18,7 @@ def paginate_and_serialize(request, queryset, serializer_class, pagination_class
     paginated_queryset = paginator.paginate_queryset(queryset, request)
     serializer = serializer_class(paginated_queryset, many=True)
     return paginator.get_paginated_response(serializer.data)
+
 
 class CustomPagination(pagination.PageNumberPagination):
     page_size = 2  # Number of items per page
@@ -42,6 +45,7 @@ class ProductList(APIView):
         return Response(product_list_cache.data)
         # return Response(product_serializer.data, status=status.HTTP_200_OK)
 
+
 class CategoryList(APIView):
     authentication_classes = []
     permission_classes = [AllowAny]
@@ -49,7 +53,8 @@ class CategoryList(APIView):
     def get(self, request: Request):
         categories = Categories.objects.all()
         product_catrgories_serilizer = ProductCategorySerializer(categories, many=True)
-        return Response(product_catrgories_serilizer.data, status=status.HTTP_200_OK)        
+        return Response(product_catrgories_serilizer.data, status=status.HTTP_200_OK)
+
 
 class ProductFilter(APIView):
     authentication_classes = []
@@ -83,7 +88,7 @@ class ProductFilter(APIView):
             queryset=prlist,
             serializer_class=ProductSerializer,
             pagination_class=CustomPagination
-        )        # return Response(product_serializer.data, status=status.HTTP_200_OK)
+        )  # return Response(product_serializer.data, status=status.HTTP_200_OK)
 
 
 class PopularProduct(APIView):
@@ -104,6 +109,7 @@ class PopularProduct(APIView):
         )
         cache.set('popular_product', paginated_data.data, timeout=1800)  # 30 دقیقه
         return Response(paginated_data.data, status=status.HTTP_200_OK)
+
 
 class product_most_sells(APIView):
     authentication_classes = []
@@ -234,8 +240,8 @@ class rating(APIView):
                     request.session.save()
 
                     return Response({
-                                        "product-rate": f"{product.rate}" , "rate-unrate": f"{product.id in request.session['rated'] }"},
-                                    status=status.HTTP_200_OK)
+                        "product-rate": f"{product.rate}", "rate-unrate": f"{product.id in request.session['rated']}"},
+                        status=status.HTTP_200_OK)
 
                 else:
                     return Response({"message": f"there is no product with this slug: {slug}"},
@@ -268,3 +274,13 @@ class rating(APIView):
         else:
             return Response({"message": f"there is no product with this slug: {slug}"},
                             status=status.HTTP_404_NOT_FOUND)
+
+@app.task
+def my_task():
+    time.sleep(10)
+    open('text.txt', 'w').close()
+
+
+def task():
+    my_task()
+    return HttpResponse("Task completed")
