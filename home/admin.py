@@ -35,7 +35,8 @@ class ProductAdmin(admin.ModelAdmin):
     form = ProductForm
 
     filter_horizontal = ('tags',)
-    list_display = ('title', 'price', 'discounted_price', 'quantity', 'get_categories', 'last_update', 'is_active', 'image_preview')
+    list_display = ('title', 'price', 'discounted_price', 'quantity', 'get_categories', 'last_update', 'is_active',
+                    'image_preview')
     list_filter = ('title', 'category', 'is_active')
     list_editable = ('price', 'discounted_price', 'quantity', 'is_active')
     search_fields = ('title', 'price', 'quantity', 'category__name')
