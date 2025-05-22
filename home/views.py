@@ -275,6 +275,7 @@ class rating(APIView):
             return Response({"message": f"there is no product with this slug: {slug}"},
                             status=status.HTTP_404_NOT_FOUND)
 
+
 @app.task
 def my_task():
     time.sleep(10)
