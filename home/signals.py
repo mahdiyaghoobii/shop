@@ -62,6 +62,7 @@ def handle_discount_change(sender, instance, **kwargs):
             for product in Products.objects.filter(category=category):
                 update_discounted_price(product)
 
+
 @receiver(post_save, sender=Categories)
 def update_product_prices(sender, instance, **kwargs):
     for product in Products.objects.filter(category=instance):
@@ -81,9 +82,7 @@ def update_product_discounted_price(sender, instance, **kwargs):
     # if instance.discounted_price:
     #     print("product discounted price", instance.discounted_price)
     # elif not instance.discounted_price:
-        update_discounted_price(instance)
-
-
+    update_discounted_price(instance)
 
 
 @receiver(m2m_changed, sender=Products.category.through)
